@@ -466,6 +466,7 @@
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
         }
 
         .hero::before {
@@ -499,6 +500,7 @@
             padding: 0;
             position: relative;
             z-index: 3;
+            pointer-events: auto;
         }
 
         /* Left Content Side with Rectangle White BG */
@@ -507,6 +509,7 @@
             right: 125px;
             top: 50%;
             transform: translateY(-50%);
+            pointer-events: auto;
         }
 
         .hero-content-card {
@@ -523,6 +526,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
+            pointer-events: auto;
         }
 
 
@@ -665,6 +669,9 @@
             display: flex;
             gap: 0.8rem;
             flex-wrap: wrap;
+            pointer-events: auto;
+            position: relative;
+            z-index: 20;
         }
 
         .btn {
@@ -679,6 +686,9 @@
             border: 2px solid transparent;
             position: relative;
             overflow: hidden;
+            pointer-events: auto;
+            cursor: pointer;
+            touch-action: manipulation;
         }
 
         .btn::before {
@@ -734,6 +744,7 @@
             opacity: 0;
             transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             transform: translateX(24px);
+            pointer-events: none;
         }
 
         .content-slide.active {
@@ -742,6 +753,7 @@
             z-index: 10 !important;
             display: flex !important;
             visibility: visible !important;
+            pointer-events: auto !important;
         }
 
         .content-slider-dots {
@@ -4573,6 +4585,17 @@
             /* HIDE NON-ACTIVE CONTENT SLIDES ON MOBILE */
             .hero .content-slide:not(.active) {
                 display: none !important;
+                visibility: hidden !important;
+                pointer-events: none !important;
+            }
+
+            /* ENSURE ACTIVE CONTENT SLIDE IS PROPERLY POSITIONED */
+            .hero .content-slide.active {
+                display: block !important;
+                visibility: visible !important;
+                pointer-events: auto !important;
+                position: relative !important;
+                z-index: 10 !important;
             }
 
             /* HIDE IMAGE SLIDESHOW NAVIGATION DOTS ON MOBILE */
@@ -4625,6 +4648,10 @@
                 gap: 0.8rem !important; /* Moderate spacing between buttons */
                 width: 100% !important;
                 flex-wrap: wrap !important; /* Allow wrapping if needed */
+                position: relative !important;
+                z-index: 20 !important;
+                pointer-events: auto !important;
+                display: flex !important;
             }
 
             .hero-buttons .btn {
@@ -4637,6 +4664,18 @@
                 font-weight: 600 !important;
                 transition: all 0.3s ease !important;
                 white-space: nowrap !important; /* Prevent text wrapping within buttons */
+                position: relative !important;
+                z-index: 9999 !important;
+                pointer-events: auto !important;
+                display: inline-block !important;
+                cursor: pointer !important;
+                touch-action: manipulation !important;
+                -webkit-touch-callout: none !important;
+                -webkit-user-select: none !important;
+                -moz-user-select: none !important;
+                -ms-user-select: none !important;
+                user-select: none !important;
+                -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1) !important;
             }
 
             .hero-buttons .btn:active {
@@ -4699,6 +4738,17 @@
                 /* HIDE NON-ACTIVE CONTENT SLIDES ON SMALL SCREENS */
                 .hero .content-slide:not(.active) {
                     display: none !important;
+                    visibility: hidden !important;
+                    pointer-events: none !important;
+                }
+
+                /* ENSURE ACTIVE CONTENT SLIDE IS PROPERLY POSITIONED */
+                .hero .content-slide.active {
+                    display: block !important;
+                    visibility: visible !important;
+                    pointer-events: auto !important;
+                    position: relative !important;
+                    z-index: 10 !important;
                 }
 
                 /* HIDE IMAGE SLIDESHOW NAVIGATION DOTS ON SMALL SCREENS */
@@ -4731,6 +4781,11 @@
                     padding: 0.7rem 0.8rem !important; /* Smaller padding for very small screens */
                     font-size: 0.7rem !important; /* Even smaller text to fit in buttons */
                     white-space: nowrap !important;
+                    position: relative !important;
+                    z-index: 999 !important;
+                    pointer-events: auto !important;
+                    display: inline-block !important;
+                    cursor: pointer !important;
                 }
 
                 /* Allow button wrapping on very small screens if text is too long */
@@ -4738,11 +4793,20 @@
                     .hero-buttons {
                         flex-direction: column !important; /* Stack on very tiny screens */
                         gap: 0.5rem !important;
+                        position: relative !important;
+                        z-index: 20 !important;
+                        pointer-events: auto !important;
+                        display: flex !important;
                     }
 
                     .hero-buttons .btn {
                         width: 100% !important;
                         flex: none !important;
+                        position: relative !important;
+                        z-index: 999 !important;
+                        pointer-events: auto !important;
+                        display: inline-block !important;
+                        cursor: pointer !important;
                     }
                 }
             }
@@ -6165,9 +6229,11 @@
             });
 
 
-            // Add loading effect to buttons
+            // Add loading effect to buttons and fix mobile button functionality
             document.querySelectorAll('.btn').forEach(button => {
                 button.addEventListener('click', function(e) {
+                    console.log('🔘 Button clicked:', this.href, this.textContent.trim());
+
                     // Don't prevent default if it's an external link or has href
                     if (this.getAttribute('href') && this.getAttribute('href').startsWith('#')) {
                         // Only prevent for anchor links that we handle with smooth scrolling
@@ -6179,6 +6245,17 @@
                     setTimeout(() => {
                         this.style.transform = '';
                     }, 150);
+                });
+
+                // Add touch events for mobile
+                button.addEventListener('touchstart', function(e) {
+                    console.log('👆 Button touched:', this.href, this.textContent.trim());
+                    this.style.transform = 'scale(0.98)';
+                });
+
+                button.addEventListener('touchend', function(e) {
+                    console.log('👆 Button touch ended:', this.href, this.textContent.trim());
+                    this.style.transform = '';
                 });
             });
 
@@ -6290,6 +6367,89 @@
             if (window.contentSlides.length > 0) {
                 window.showContentSlide(0);
             }
+
+            // Mobile hero button fix - Force click events to work
+            setTimeout(() => {
+                const heroButtons = document.querySelectorAll('.hero-buttons .btn');
+                console.log('🔧 Setting up hero button mobile handlers for', heroButtons.length, 'buttons');
+
+                heroButtons.forEach((button, index) => {
+                    console.log('🔘 Setting up button', index + 1, ':', button.textContent.trim(), 'href:', button.href);
+
+                    // Force all possible mobile touch styles
+                    button.style.cssText = `
+                        position: relative !important;
+                        z-index: 99999 !important;
+                        pointer-events: auto !important;
+                        touch-action: manipulation !important;
+                        -webkit-touch-callout: default !important;
+                        -webkit-user-select: auto !important;
+                        user-select: auto !important;
+                        cursor: pointer !important;
+                        display: inline-block !important;
+                    `;
+
+                    // Remove all existing event listeners
+                    const newButton = button.cloneNode(true);
+                    button.parentNode.replaceChild(newButton, button);
+
+                    // Add multiple event types for maximum compatibility
+                    ['click', 'touchstart', 'touchend', 'mousedown', 'mouseup'].forEach(eventType => {
+                        newButton.addEventListener(eventType, function(e) {
+                            console.log(`🎯 Hero button ${eventType.toUpperCase()}:`, this.textContent.trim(), 'href:', this.href);
+
+                            if (eventType === 'click' || eventType === 'touchend') {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                console.log('🚀 Navigating to:', this.href);
+                                window.location.href = this.href;
+                            }
+                        }, { passive: false });
+                    });
+
+                    // Force click on tap for mobile
+                    newButton.addEventListener('touchstart', function(e) {
+                        this.style.backgroundColor = '#a71e2a';
+                        this.style.transform = 'scale(0.98)';
+                    });
+
+                    newButton.addEventListener('touchend', function(e) {
+                        this.style.backgroundColor = '';
+                        this.style.transform = '';
+                    });
+                });
+            }, 1000);
+
+            // Debug what element is being touched instead of buttons
+            document.addEventListener('touchstart', function(e) {
+                const target = e.target;
+                console.log('🔍 Touch detected on element:', {
+                    tagName: target.tagName,
+                    className: target.className,
+                    id: target.id,
+                    innerText: target.innerText?.substring(0, 50),
+                    style: target.style.cssText
+                });
+
+                if (e.target.closest('.hero-buttons .btn')) {
+                    const button = e.target.closest('.hero-buttons .btn');
+                    console.log('🎯 Document touchstart detected on button:', button.textContent.trim());
+                } else if (e.target.closest('.hero')) {
+                    console.log('🏠 Touch is inside hero section but not on button');
+                    console.log('🔍 Touched element details:', target.outerHTML.substring(0, 200));
+                }
+            });
+
+            document.addEventListener('touchend', function(e) {
+                if (e.target.closest('.hero-buttons .btn')) {
+                    const button = e.target.closest('.hero-buttons .btn');
+                    console.log('🎯 Document touchend detected on button:', button.textContent.trim());
+                    setTimeout(() => {
+                        console.log('🚀 Force navigation to:', button.href);
+                        window.location.href = button.href;
+                    }, 100);
+                }
+            });
 
             // Initialize first image slide
             if (window.slides.length > 0) {
