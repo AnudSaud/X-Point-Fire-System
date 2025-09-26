@@ -1,0 +1,3429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - X Point Fire System | Fire Protection Services Dubai UAE</title>
+    <meta name="description" content="Contact X Point Fire System for professional fire protection and safety services in Dubai, UAE. Get expert consultation, quotes, and 24/7 emergency support from A+ certified fire safety specialists.">
+    <link rel="icon" type="image/png" href="../assets/logo.png">
+    <link rel="apple-touch-icon" href="../assets/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background: transparent;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+            background: transparent;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        /* Header */
+        header {
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.4s ease, transform 0.4s ease;
+        }
+
+        header.scrolled {
+            box-shadow: 0 2px 30px rgba(0,0,0,0.2);
+        }
+
+        header.scrolled .header-nav {
+            box-shadow: 0 4px 20px rgba(220, 53, 69, 0.3);
+        }
+
+        /* Header Top Row */
+        .header-top {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            padding: 1.6rem 0;
+            border-bottom: 1px solid rgba(220, 53, 69, 0.3);
+            position: relative;
+            z-index: 10;
+            transition: transform 0.4s ease, opacity 0.4s ease;
+        }
+
+        .header-top-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.6rem;
+        }
+
+        .logo {
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-image {
+            height: 96px;
+            width: auto;
+            filter: drop-shadow(0 0 10px rgba(220, 53, 69, 0.3));
+            transition: transform 0.3s ease;
+        }
+
+        .contact-info-header {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            align-items: flex-start;
+            margin-left: auto;
+            margin-right: 2.4rem;
+        }
+
+        .phone-group, .email-group {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .contact-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #dc3545, #ff6b7a);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            color: white;
+            box-shadow: 0 3px 10px rgba(220, 53, 69, 0.3);
+        }
+
+        .phone-details {
+            display: flex;
+            flex-direction: column;
+            gap: 0.16rem;
+        }
+
+        .office-label {
+            color: #dc3545;
+            font-size: 0.64rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+
+        .phone-number, .email-value {
+            color: #555;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .phone-number:hover, .email-value:hover {
+            color: #dc3545;
+        }
+
+        /* Login Section */
+        .login-section {
+            position: relative;
+        }
+
+        .login-btn {
+            background: linear-gradient(135deg, #dc3545, #c82333);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .login-btn:hover {
+            background: linear-gradient(135deg, #c82333, #a71e2a);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(220, 53, 69, 0.3);
+        }
+
+        .login-form {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            padding: 1.6rem;
+            width: 224px;
+            z-index: 99999;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+
+        .login-form.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .login-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 0.8rem;
+            border: 2px solid #e9ecef;
+            border-radius: 6px;
+            font-size: 11px;
+            transition: border-color 0.3s ease;
+        }
+
+        .login-form input:focus {
+            outline: none;
+            border-color: #dc3545;
+        }
+
+        .login-form button[type="submit"] {
+            width: 100%;
+            background: linear-gradient(135deg, #dc3545, #c82333);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .login-form button[type="submit"]:hover {
+            background: linear-gradient(135deg, #c82333, #a71e2a);
+        }
+
+        .close-login {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 20px;
+            color: #999;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close-login:hover {
+            color: #dc3545;
+        }
+
+        /* Header Navigation Row */
+        .header-nav {
+            background: linear-gradient(135deg, #dc3545, #c82333);
+            padding: 1.6rem 0;
+            transition: all 0.5s ease, background 0.4s ease;
+        }
+
+        .main-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .nav-logo {
+            position: absolute;
+            left: 0;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.4s ease;
+        }
+
+        header.scrolled .nav-logo {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .nav-logo-image {
+            height: 40px;
+            width: auto;
+            filter: brightness(0) invert(1);
+            transition: all 0.3s ease;
+        }
+
+        .nav-logo-image:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-contact {
+            position: absolute;
+            right: -80px;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0;
+            z-index: 15;
+        }
+
+        header.scrolled .nav-contact {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .nav-contact a, .nav-contact a:hover, .nav-contact a:focus, .nav-contact a:active, .nav-contact a:visited {
+            text-decoration: none !important;
+            border-bottom: none !important;
+            box-shadow: none !important;
+            text-decoration-line: none !important;
+            text-decoration-style: none !important;
+            text-decoration-color: transparent !important;
+        }
+
+        .nav-contact a::after {
+            display: none !important;
+            content: none !important;
+            width: 0 !important;
+            height: 0 !important;
+        }
+
+        .nav-contact a:hover::after {
+            display: none !important;
+            content: none !important;
+            width: 0 !important;
+            height: 0 !important;
+        }
+
+        .nav-contact * {
+            text-decoration: none !important;
+        }
+
+        .nav-phone {
+            color: white !important;
+            font-size: 0.8rem !important;
+            font-weight: 600 !important;
+            display: flex;
+            align-items: center;
+            gap: 0.32rem;
+            text-decoration: none !important;
+            transition: color 0.3s ease;
+            border-bottom: none !important;
+        }
+
+        .nav-phone:hover {
+            color: rgba(255, 255, 255, 0.8) !important;
+            text-decoration: none !important;
+            border-bottom: none !important;
+        }
+
+        .nav-phone i {
+            color: white !important;
+            font-size: 0.72rem !important;
+        }
+
+        .nav-email {
+            color: white !important;
+            font-size: 0.72rem !important;
+            font-weight: 500 !important;
+            display: flex;
+            align-items: center;
+            gap: 0.32rem;
+            text-decoration: none !important;
+            transition: color 0.3s ease;
+            border-bottom: none !important;
+        }
+
+        .nav-email:hover {
+            color: rgba(255, 255, 255, 0.8) !important;
+            text-decoration: none !important;
+            border-bottom: none !important;
+        }
+
+        .nav-email i {
+            color: white !important;
+            font-size: 0.64rem !important;
+        }
+
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.4rem;
+            align-items: center;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: 900;
+            position: relative;
+            transition: color 0.4s ease;
+            padding: 0.4rem 0;
+            font-size: 0.88rem;
+        }
+
+        .main-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: white;
+            transition: width 0.3s ease, background 0.4s ease;
+        }
+
+        .main-nav a:hover {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .main-nav a:hover::after {
+            width: 100%;
+        }
+
+        .main-nav a.active {
+            color: white;
+        }
+
+        .main-nav a.active::after {
+            width: 100%;
+        }
+
+        .nav-support {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            z-index: 5;
+        }
+
+        .nav-support a {
+            color: #dc3545;
+            text-decoration: none;
+            padding: 0.64rem 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-weight: 600;
+            font-size: 0.72rem;
+            border-radius: 20px;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .nav-support a::after {
+            display: none !important;
+        }
+
+        .nav-support a:hover {
+            color: #dc3545;
+            text-decoration: none;
+        }
+
+        .nav-support a i {
+            font-size: 1rem;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: white;
+            cursor: pointer;
+            padding: 0.5rem;
+            position: absolute;
+            right: 0;
+            transition: color 0.4s ease;
+        }
+
+        /* Services Dropdown */
+        .services-dropdown {
+            position: relative;
+        }
+
+        .dropdown-arrow {
+            font-size: 0.7rem;
+            margin-left: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .services-dropdown:hover .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(220, 53, 69, 0.2);
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            min-width: 280px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(-50%) translateY(-10px);
+            transition: all 0.4s ease;
+            z-index: 1000;
+            margin-top: 1rem;
+        }
+
+        .services-dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .dropdown-content {
+            padding: 1rem 0;
+        }
+
+        .dropdown-item {
+            display: flex !important;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.8rem 1.5rem !important;
+            color: #333 !important;
+            text-decoration: none !important;
+            font-size: 0.9rem !important;
+            font-weight: 600 !important;
+            transition: all 0.3s ease !important;
+            border: none !important;
+        }
+
+        .dropdown-item::after {
+            display: none !important;
+        }
+
+        .dropdown-item:hover {
+            background: linear-gradient(135deg, #dc3545, #ff6b7a) !important;
+            color: white !important;
+            transform: translateX(5px) !important;
+        }
+
+        .dropdown-item i {
+            font-size: 1rem;
+            color: #dc3545;
+            transition: color 0.3s ease;
+        }
+
+        .dropdown-item:hover i {
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background:
+                linear-gradient(135deg, rgba(220, 53, 69, 0.2) 0%, rgba(0, 0, 0, 0.7) 50%, rgba(220, 53, 69, 0.3) 100%),
+                url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
+            margin-top: 14.8rem;
+            height: calc(100vh - 14.8rem);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-attachment: fixed;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 30% 20%, rgba(255,255,255,0.1) 0%, transparent 30%),
+                radial-gradient(circle at 70% 80%, rgba(220, 53, 69, 0.1) 0%, transparent 40%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            padding: 3rem 2rem;
+            max-width: 800px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #dc3545, #c82333);
+            color: white;
+            padding: 10px 30px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.2rem, 4vw, 3.5rem);
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #ffffff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.1rem;
+            background: linear-gradient(135deg, #dc3545 0%, #ff6b7a 50%, #dc3545 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.95);
+            line-height: 1.6;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+            font-weight: 400;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: white;
+        }
+
+        .breadcrumb i {
+            font-size: 0.7rem;
+        }
+
+        /* Contact Info Section */
+        .contact-info-section {
+            padding: 2rem 0;
+            background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+            position: relative;
+            overflow: hidden;
+            min-height: calc(100vh - 160px);
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-info-section .section-header h2 {
+            color: white;
+            font-weight: 800;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .contact-info-section .section-header p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Contact Info Section Waves */
+        .contact-info-section .waves {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            z-index: 1;
+            overflow: hidden;
+        }
+        .contact-info-section .waves .wave {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 200%;
+            height: 100%;
+            background-repeat: repeat-x;
+            transform: translateZ(0);
+        }
+        .contact-info-section .waves .wave1 {
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="%23ffffff" opacity="0.3"></path></svg>');
+            animation: contactInfoWave1 12s linear infinite;
+            z-index: 1;
+        }
+        .contact-info-section .waves .wave2 {
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" fill="%23ffffff" opacity="0.5"></path></svg>');
+            animation: contactInfoWave2 18s linear infinite reverse;
+            z-index: 2;
+        }
+        .contact-info-section .waves .wave3 {
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%23ffffff" opacity="0.7"></path></svg>');
+            animation: contactInfoWave3 25s linear infinite;
+            z-index: 3;
+        }
+        .contact-info-section .waves .wave4 {
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V30C150,80,300,0,450,30C600,60,750,-20,900,10C1050,40,1200,120,1200,120V0Z" fill="%23ffffff" opacity="0.9"></path></svg>');
+            animation: contactInfoWave4 15s linear infinite reverse;
+            z-index: 4;
+        }
+        @keyframes contactInfoWave1 {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(50%); }
+        }
+        @keyframes contactInfoWave2 {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(50%); }
+        }
+        @keyframes contactInfoWave3 {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(50%); }
+        }
+        @keyframes contactInfoWave4 {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(50%); }
+        }
+
+
+        .contact-info-section .container {
+            position: relative;
+            z-index: 5;
+            max-width: 1120px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+            margin-bottom: 0.8rem;
+            color: #333;
+            font-weight: 700;
+        }
+
+        .section-header p {
+            font-size: 0.96rem;
+            color: #666;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        .contact-two-column-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            align-items: start;
+            margin-bottom: 0;
+        }
+
+        .contact-cards-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-cards-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+
+        .contact-cards-grid .contact-card:nth-child(3) {
+            grid-column: 1 / -1;
+            max-width: 60%;
+            margin: 0 auto;
+        }
+
+        .contact-form-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 2rem 1.75rem;
+            border-radius: 16px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(220, 53, 69, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+
+        .contact-form-container h3 {
+            color: #333;
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-form-container p {
+            color: #666;
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(220, 53, 69, 0.15);
+            border-radius: 10px;
+            padding: 0.6rem 0.6rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+
+        .contact-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(220, 53, 69, 0.15);
+            border-color: rgba(220, 53, 69, 0.25);
+        }
+
+        .contact-card .contact-icon {
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, #dc3545, #c82333);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 0.4rem;
+            font-size: 0.8rem;
+            color: white;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(220, 53, 69, 0.25);
+        }
+
+        .contact-card:hover .contact-icon {
+            transform: scale(1.1);
+            box-shadow: 0 12px 32px rgba(220, 53, 69, 0.4);
+        }
+
+        .contact-card h3 {
+            color: #333;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .contact-detail {
+            margin-bottom: 0.3rem;
+        }
+
+        .contact-detail strong {
+            display: block;
+            color: #dc3545;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+            font-size: 0.8rem;
+        }
+
+        .contact-detail a {
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.75rem;
+        }
+
+        .contact-detail a:hover {
+            color: #dc3545;
+        }
+
+        .contact-detail span {
+            color: #666;
+            line-height: 1.3;
+            font-size: 0.75rem;
+        }
+
+        /* Contact Form Section */
+        .contact-form-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+
+        .contact-form-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1609220136736-443140cffec6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover;
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .contact-form-section .container {
+            position: relative;
+            z-index: 5;
+            max-width: 1120px;
+        }
+
+        .contact-form-section .section-header h2 {
+            color: white;
+            font-size: clamp(1.75rem, 2.8vw, 2.45rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .contact-form-section .section-header p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.84rem;
+            max-width: 420px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .contact-content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+            align-items: start;
+        }
+
+        .contact-form-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 3rem 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 21px 42px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            font-weight: 700;
+            margin-bottom: 0.56rem;
+            color: #333;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .form-group label i {
+            color: #dc3545;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            padding: 0.6rem 0.8rem;
+            border: 2px solid rgba(220, 53, 69, 0.1);
+            border-radius: 8px;
+            font-size: 0.8rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-family: inherit;
+            background: rgba(248, 249, 250, 0.8);
+            color: #333;
+            font-weight: 500;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #dc3545;
+            box-shadow: 0 0 0 4px rgba(220, 53, 69, 0.15);
+            background: rgba(255, 255, 255, 0.95);
+            transform: translateY(-2px);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .form-group select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="%23dc3545" d="M2 0L0 2h4zm0 5L0 3h4z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 12px;
+            padding-right: 3rem;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(102, 102, 102, 0.7);
+            font-style: italic;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #dc3545, #c82333);
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #c82333, #a71e2a);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(220, 53, 69, 0.4);
+        }
+
+        .contact-info-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 3rem 2.5rem;
+            box-shadow: 0 21px 42px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-info-card h3 {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .info-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .info-content h4 {
+            color: white;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .info-content p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.85rem;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        .info-content a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .info-content a:hover {
+            color: white;
+        }
+
+        /* Map Section */
+        .map-section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+
+        .map-section .container {
+            position: relative;
+            z-index: 5;
+        }
+
+        .map-container {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(220, 53, 69, 0.1);
+            height: 500px;
+            position: relative;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 20px;
+        }
+
+        /* Map Section Waves */
+        .map-section .waves {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            z-index: 1;
+            overflow: hidden;
+        }
+        .map-section .waves .wave {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 200%;
+            height: 100%;
+            background-repeat: repeat-x;
+            transform: translateZ(0);
+        }
+        .map-section .waves .wave1 {
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="%23dc3545" opacity="0.3"></path></svg>');
+            animation: mapWave1 12s linear infinite;
+            z-index: 1;
+        }
+        .map-section .waves .wave2 {
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" fill="%23dc3545" opacity="0.5"></path></svg>');
+            animation: mapWave2 18s linear infinite reverse;
+            z-index: 2;
+        }
+        .map-section .waves .wave3 {
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%23dc3545" opacity="0.7"></path></svg>');
+            animation: mapWave3 25s linear infinite;
+            z-index: 3;
+        }
+        .map-section .waves .wave4 {
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V30C150,80,300,0,450,30C600,60,750,-20,900,10C1050,40,1200,120,1200,120V0Z" fill="%23dc3545" opacity="0.9"></path></svg>');
+            animation: mapWave4 15s linear infinite reverse;
+            z-index: 4;
+        }
+        @keyframes mapWave1 {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(50%); }
+        }
+        @keyframes mapWave2 {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(50%); }
+        }
+        @keyframes mapWave3 {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(50%); }
+        }
+        @keyframes mapWave4 {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(50%); }
+        }
+
+        /* Emergency Support Section */
+        .emergency-support {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            padding: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .emergency-support::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover;
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .emergency-support .container {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .emergency-support h2 {
+            color: white;
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .emergency-support p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .emergency-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .emergency-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .emergency-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .emergency-btn i {
+            font-size: 1.2rem;
+        }
+
+        /* Emergency Support Waves */
+        .emergency-support .waves {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            z-index: 1;
+            overflow: hidden;
+        }
+        .emergency-support .waves .wave {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 200%;
+            height: 100%;
+            background-repeat: repeat-x;
+            transform: translateZ(0);
+        }
+        .emergency-support .waves .wave1 {
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="%23ffffff" opacity="0.3"></path></svg>');
+            animation: emergencyWave1 12s linear infinite;
+            z-index: 1;
+        }
+        .emergency-support .waves .wave2 {
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" fill="%23ffffff" opacity="0.5"></path></svg>');
+            animation: emergencyWave2 18s linear infinite reverse;
+            z-index: 2;
+        }
+        .emergency-support .waves .wave3 {
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%23ffffff" opacity="0.7"></path></svg>');
+            animation: emergencyWave3 25s linear infinite;
+            z-index: 3;
+        }
+        .emergency-support .waves .wave4 {
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V30C150,80,300,0,450,30C600,60,750,-20,900,10C1050,40,1200,120,1200,120V0Z" fill="%23ffffff" opacity="0.9"></path></svg>');
+            animation: emergencyWave4 15s linear infinite reverse;
+            z-index: 4;
+        }
+        @keyframes emergencyWave1 {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(50%); }
+        }
+        @keyframes emergencyWave2 {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(50%); }
+        }
+        @keyframes emergencyWave3 {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(50%); }
+        }
+        @keyframes emergencyWave4 {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(50%); }
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+            color: white;
+            padding: 4.8rem 0 1.6rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Footer Waves */
+        footer .waves {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            z-index: 3;
+            overflow: hidden;
+        }
+        footer .waves .wave {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 200%;
+            height: 100%;
+            background-repeat: repeat-x;
+            transform: translateZ(0);
+        }
+        footer .waves .wave1 {
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="%23ffffff" opacity="0.3"></path></svg>');
+            animation: footerWave1 12s linear infinite;
+            z-index: 1;
+        }
+        footer .waves .wave2 {
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" fill="%23ffffff" opacity="0.5"></path></svg>');
+            animation: footerWave2 18s linear infinite reverse;
+            z-index: 2;
+        }
+        footer .waves .wave3 {
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%23ffffff" opacity="0.7"></path></svg>');
+            animation: footerWave3 25s linear infinite;
+            z-index: 3;
+        }
+        footer .waves .wave4 {
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V30C150,80,300,0,450,30C600,60,750,-20,900,10C1050,40,1200,120,1200,120V0Z" fill="%23ffffff" opacity="0.9"></path></svg>');
+            animation: footerWave4 15s linear infinite reverse;
+            z-index: 4;
+        }
+        @keyframes footerWave1 {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(50%); }
+        }
+        @keyframes footerWave2 {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(50%); }
+        }
+        @keyframes footerWave3 {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(50%); }
+        }
+        @keyframes footerWave4 {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(50%); }
+        }
+
+        /* Bottom Waves */
+        .bottom-waves {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            z-index: 3;
+            overflow: hidden;
+            transform: rotate(180deg);
+        }
+        .bottom-waves .wave {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 200%;
+            height: 100%;
+            background-repeat: repeat-x;
+            transform: translateZ(0);
+        }
+        .bottom-waves .wave1 {
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="%23ffffff" opacity="0.3"></path></svg>');
+            animation: bottomWave1 12s linear infinite;
+            z-index: 1;
+        }
+        .bottom-waves .wave2 {
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" fill="%23ffffff" opacity="0.5"></path></svg>');
+            animation: bottomWave2 18s linear infinite reverse;
+            z-index: 2;
+        }
+        .bottom-waves .wave3 {
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%23ffffff" opacity="0.7"></path></svg>');
+            animation: bottomWave3 25s linear infinite;
+            z-index: 3;
+        }
+        .bottom-waves .wave4 {
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V30C150,80,300,0,450,30C600,60,750,-20,900,10C1050,40,1200,120,1200,120V0Z" fill="%23ffffff" opacity="0.9"></path></svg>');
+            animation: bottomWave4 15s linear infinite reverse;
+            z-index: 4;
+        }
+        @keyframes bottomWave1 {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(50%); }
+        }
+        @keyframes bottomWave2 {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(50%); }
+        }
+        @keyframes bottomWave3 {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(50%); }
+        }
+        @keyframes bottomWave4 {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(50%); }
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover;
+            opacity: 0.02;
+            z-index: 1;
+        }
+        footer .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1120px;
+        }
+
+        /* Footer Grid and Sections */
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 3.2rem;
+            margin-bottom: 2.4rem;
+            text-align: center;
+        }
+        @media (max-width: 1024px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2.4rem;
+                text-align: center;
+            }
+        }
+
+        .footer-section {
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1.6rem;
+            color: white;
+            font-size: 1.12rem;
+            font-weight: 700;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 0.64rem;
+            text-align: left;
+        }
+
+        /* Only center align the Contact Information heading */
+        .footer-section:last-child h3 {
+            justify-content: center;
+            text-align: center;
+        }
+
+        .footer-section h3 i {
+            font-size: 0.96rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+        }
+        /* Center align Contact Information section ul */
+        .footer-section:last-child ul {
+            align-items: center;
+            text-align: center;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+            padding: 0.4rem 0;
+        }
+        .footer-section ul li:last-child {
+            margin-bottom: 0;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.95);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 0.64rem;
+            font-size: 0.8rem;
+            text-align: left;
+        }
+        /* Center align Contact Information section links */
+        .footer-section:last-child a {
+            justify-content: center;
+            text-align: center;
+        }
+
+        .footer-section a:hover {
+            color: white;
+            transform: translateX(4px);
+        }
+
+        .footer-section a i {
+            font-size: 0.72rem;
+            color: rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+        }
+
+        .footer-section a:hover i {
+            color: white;
+            transform: scale(1.2);
+        }
+
+        .white-bg-heading {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 0.12rem 0.32rem;
+            border-radius: 3.2px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 1.6px 6.4px rgba(0, 0, 0, 0.2);
+            color: #dc3545 !important;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.24rem;
+            white-space: nowrap;
+            width: fit-content;
+            font-size: 0.72rem;
+        }
+
+        .white-bg-heading i {
+            color: #dc3545 !important;
+        }
+
+        .footer-logo {
+            text-align: center;
+            margin-bottom: 1.6rem;
+        }
+
+        .footer-logo img {
+            height: 96px;
+            width: auto;
+            filter: brightness(0) invert(1);
+            transition: all 0.3s ease;
+        }
+
+        .footer-logo img:hover {
+            transform: scale(1.05);
+        }
+
+        .company-description {
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 0.8rem;
+            margin-bottom: 1.6rem;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .contact-info {
+            line-height: 1.4;
+            color: #333;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 0.8rem;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+            margin-bottom: 1rem;
+            font-size: 0.75rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 0.1rem;
+        }
+
+        .contact-info strong {
+            color: #dc3545;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.3rem;
+            margin: 0;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .contact-info a {
+            display: block;
+            text-align: center !important;
+            color: #333;
+            text-decoration: none;
+            margin: 0;
+            width: 100%;
+            line-height: 1.2;
+            flex-shrink: 0;
+            font-weight: 700;
+        }
+
+        .contact-info a:hover {
+            color: #dc3545 !important;
+        }
+        .contact-info:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-info i {
+            color: #666;
+            margin-right: 0.3rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 3.2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 1.6rem;
+            transform: translateY(-60px);
+        }
+
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin: 0;
+        }
+
+        /* Footer Mobile Responsiveness */
+        @media (max-width: 768px) {
+            footer {
+                padding: 3rem 0 1rem !important;
+            }
+            .footer-grid {
+                display: grid !important;
+                grid-template-columns: 1fr 1fr !important;
+                grid-template-areas:
+                    "logo logo"
+                    "services quick-links"
+                    "contact contact" !important;
+                gap: 1.5rem !important;
+                text-align: center;
+            }
+            .footer-section:nth-child(1) {
+                grid-area: logo;
+            }
+            .footer-section:nth-child(2) {
+                grid-area: services;
+                text-align: left !important;
+            }
+            .footer-section:nth-child(3) {
+                grid-area: quick-links;
+                text-align: left !important;
+            }
+            .footer-section:nth-child(4) {
+                grid-area: contact;
+            }
+            .footer-section h3.white-bg-heading {
+                background: rgba(255, 255, 255, 0.95) !important;
+                backdrop-filter: blur(20px) !important;
+                -webkit-backdrop-filter: blur(20px) !important;
+                border: 1px solid rgba(255, 255, 255, 0.3) !important;
+                color: #dc3545 !important;
+                font-size: 1rem !important;
+                padding: 0.6rem 1rem !important;
+                border-radius: 8px !important;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+            }
+            .footer-logo img {
+                height: 80px !important;
+            }
+            .company-description {
+                text-align: center;
+                font-size: 0.9rem;
+                line-height: 1.6;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+            .contact-info {
+                text-align: center;
+                margin-bottom: 0.6rem;
+                padding: 0.4rem;
+                background: rgba(255, 255, 255, 0.95) !important;
+                backdrop-filter: blur(20px) !important;
+                -webkit-backdrop-filter: blur(20px) !important;
+                border: 1px solid rgba(255, 255, 255, 0.2) !important;
+                border-radius: 8px !important;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+                color: #333 !important;
+                margin: 0.3rem 0;
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 0.1rem !important;
+            }
+            .contact-info:last-child {
+                margin-bottom: 0 !important;
+            }
+            .contact-info strong {
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                text-align: center !important;
+                margin: 0rem !important;
+                flex-shrink: 0 !important;
+            }
+            .contact-info a {
+                display: block !important;
+                text-align: center !important;
+                color: #333 !important;
+                text-decoration: none !important;
+                margin: 0rem !important;
+                width: 100% !important;
+                line-height: 1.1 !important;
+                flex-shrink: 0 !important;
+            }
+            .footer-bottom {
+                transform: none !important;
+                margin-top: 2rem;
+                padding: 1.5rem 1rem;
+            }
+            .footer-bottom p {
+                font-size: 0.75rem;
+                line-height: 1.4;
+            }
+        }
+
+        @media (max-width: 480px) {
+            footer {
+                padding: 2.5rem 0 1rem !important;
+            }
+            footer .container {
+                padding: 0 1rem !important;
+            }
+            .footer-grid {
+                gap: 1rem !important;
+                grid-template-columns: 1fr 1fr !important;
+                grid-template-areas:
+                    "logo logo"
+                    "services quick-links"
+                    "contact contact" !important;
+            }
+            .footer-logo img {
+                height: 70px !important;
+            }
+            .company-description {
+                font-size: 0.85rem;
+                max-width: 300px;
+                line-height: 1.5;
+            }
+            .contact-info {
+                padding: 0.3rem;
+                font-size: 0.85rem;
+                margin-bottom: 0.5rem;
+            }
+            /* Stack phone and email vertically */
+            .contact-info:last-child {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .footer-bottom {
+                padding: 1rem;
+            }
+            .footer-bottom p {
+                font-size: 0.7rem;
+                word-break: break-word;
+            }
+        }
+
+        @media (max-width: 360px) {
+            footer {
+                padding: 2rem 0 0.5rem !important;
+            }
+            .footer-section:nth-child(2) {
+                text-align: left !important;
+            }
+            .footer-section:nth-child(3) {
+                text-align: left !important;
+                padding-left: 0.75rem !important;
+            }
+            .footer-logo img {
+                height: 60px !important;
+            }
+            .company-description {
+                font-size: 0.8rem;
+                max-width: 280px;
+            }
+            .contact-info {
+                padding: 0.2rem;
+                font-size: 0.8rem;
+                margin-bottom: 0.4rem;
+            }
+            .footer-bottom {
+                padding: 0.8rem 0.5rem;
+            }
+            .footer-bottom p {
+                font-size: 0.65rem;
+                line-height: 1.3;
+            }
+        }
+
+        /* Reduced motion accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            .contact-info-section .waves .wave,
+            .map-section .waves .wave,
+            .emergency-support .waves .wave,
+            footer .waves .wave,
+            .bottom-waves .wave {
+                animation: none !important;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        /* Mobile Menu Button - Hidden by default */
+        .mobile-menu-btn {
+            display: none;
+        }
+
+        .mobile-menu {
+            display: none;
+        }
+
+        /* Mobile Header Styles - Exactly matching about.html */
+        @media (max-width: 768px) {
+            /* MOBILE HEADER - FINAL OVERRIDE (ONLY AFFECTS MOBILE - NO DESKTOP CHANGES) */
+            #header {
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                right: 0 !important;
+                z-index: 1000 !important;
+                width: 100% !important;
+                transform: translateY(0) !important;
+            }
+            #header .header-top {
+                padding: 1.2rem 0 !important;
+                transform: translateY(0) !important;
+                opacity: 1 !important;
+                background: #ffffff !important;
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
+                border: none !important;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important;
+            }
+            #header .header-top-content {
+                display: flex !important;
+                justify-content: center !important;
+                align-items: center !important;
+                gap: 1rem !important;
+                flex-wrap: nowrap !important;
+                position: relative !important;
+            }
+            #header .logo {
+                flex: 0 0 auto !important;
+            }
+            #header .logo-image {
+                height: 50px !important;
+                width: auto !important;
+            }
+            #header .contact-info-header {
+                display: none !important;
+            }
+            #header .login-section {
+                display: none !important;
+            }
+            /* HIDE THE SECOND ROW NAV BAR */
+            #header .header-nav {
+                display: none !important;
+            }
+            /* MOBILE MENU BUTTON */
+            .mobile-menu-btn {
+                display: block !important;
+                position: absolute !important;
+                right: 1rem !important;
+                top: 50% !important;
+                transform: translateY(-50%) !important;
+                font-size: 1.2rem !important;
+                color: #dc3545 !important;
+                padding: 0.4rem 0.6rem !important;
+                cursor: pointer !important;
+                border: 2px solid #dc3545 !important;
+                border-radius: 6px !important;
+                background: rgba(220, 53, 69, 0.1) !important;
+                z-index: 1001 !important;
+            }
+            .mobile-menu-btn:hover {
+                background: rgba(220, 53, 69, 0.2) !important;
+            }
+            /* MOBILE MENU DROPDOWN */
+            .mobile-menu {
+                display: block !important;
+                position: absolute !important;
+                top: 100% !important;
+                left: 0 !important;
+                right: 0 !important;
+                background: linear-gradient(135deg, #dc3545 0%, #c82333 100%) !important;
+                border-top: 1px solid rgba(255, 255, 255, 0.2) !important;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.15) !important;
+                z-index: 1000 !important;
+                opacity: 0 !important;
+                transform: translateY(-20px) !important;
+                visibility: hidden !important;
+                transition: all 0.3s ease !important;
+                max-height: 80vh !important;
+                overflow-y: auto !important;
+                -webkit-overflow-scrolling: touch !important;
+            }
+            .mobile-menu.active {
+                opacity: 1 !important;
+                transform: translateY(0) !important;
+                visibility: visible !important;
+            }
+            .mobile-menu ul {
+                list-style: none !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            .mobile-menu ul li {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+            }
+            .mobile-menu ul li:last-child {
+                border-bottom: none !important;
+            }
+            .mobile-menu ul li a {
+                display: block !important;
+                padding: 1rem 1.5rem !important;
+                color: #ffffff !important;
+                text-decoration: none !important;
+                font-size: 0.9rem !important;
+                font-weight: 500 !important;
+                transition: all 0.3s ease !important;
+                text-align: center !important;
+            }
+            .mobile-menu ul li a:hover {
+                background-color: rgba(255, 255, 255, 0.1) !important;
+                color: #ffffff !important;
+            }
+            .mobile-menu .nav-support {
+                background: white !important;
+                border-radius: 20px !important;
+                box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1) !important;
+                margin: 0.5rem 1rem !important;
+            }
+            .mobile-menu .nav-support a {
+                background: none !important;
+                border-radius: 20px !important;
+                margin: 0 !important;
+                padding: 1rem !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                gap: 0.5rem !important;
+                border: none !important;
+                color: #dc3545 !important;
+                text-align: center !important;
+            }
+            /* Mobile Services Dropdown */
+            .mobile-services {
+                position: relative;
+            }
+            .mobile-services-header {
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                padding: 1rem 1.5rem !important;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+                gap: 0.8rem !important;
+            }
+            .mobile-services-header a {
+                color: #ffffff !important;
+                text-decoration: none !important;
+                font-size: 0.9rem !important;
+                font-weight: 500 !important;
+            }
+            .mobile-services-toggle {
+                background: white !important;
+                border: none !important;
+                color: #dc3545 !important;
+                cursor: pointer !important;
+                padding: 0 !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                border-radius: 4px !important;
+                width: 24px !important;
+                height: 24px !important;
+                text-align: center !important;
+            }
+            .mobile-services-toggle i {
+                font-size: 0.8rem !important;
+                transition: transform 0.3s ease;
+                margin: 0 !important;
+                padding: 0 !important;
+                width: auto !important;
+                height: auto !important;
+                line-height: 1 !important;
+                text-align: center !important;
+            }
+            .mobile-services.active .mobile-services-toggle i {
+                transform: rotate(180deg);
+            }
+            .mobile-services-menu {
+                display: none;
+                background: rgba(0, 0, 0, 0.1);
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+                max-height: 60vh;
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            .mobile-services.active .mobile-services-menu {
+                display: block;
+            }
+            .mobile-services-menu a {
+                display: block !important;
+                padding: 0.8rem 2rem !important;
+                color: rgba(255, 255, 255, 0.9) !important;
+                text-decoration: none !important;
+                font-size: 0.85rem !important;
+                font-weight: 400 !important;
+                transition: all 0.3s ease !important;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+            }
+            .mobile-services-menu a:hover {
+                background-color: rgba(255, 255, 255, 0.1) !important;
+                color: #ffffff !important;
+                padding-left: 2.5rem !important;
+            }
+            .mobile-services-menu a:last-child {
+                border-bottom: none !important;
+            }
+            .container {
+                padding: 0 16px;
+            }
+        }
+
+        /* Floating Buttons */
+        .floating-btn {
+            position: fixed;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1000;
+            cursor: pointer;
+            border: none;
+        }
+
+        .floating-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .scroll-top-btn {
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #dc3545, #c82333);
+            display: none;
+        }
+
+        .call-btn {
+            bottom: 160px;
+            right: 20px;
+            background: linear-gradient(135deg, #007bff, #0056b3);
+        }
+
+        .whatsapp-btn {
+            bottom: 90px;
+            right: 20px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+        }
+
+        @media (max-width: 768px) {
+            .floating-btn {
+                width: 48px;
+                height: 48px;
+                font-size: 20px;
+            }
+            .call-btn {
+                bottom: 135px;
+            }
+            .whatsapp-btn {
+                bottom: 75px;
+            }
+        }
+
+        /* HERO SECTION MOBILE RESPONSIVENESS */
+        @media (max-width: 768px) {
+            .hero-section {
+                margin-top: 0 !important;
+                padding-top: 80px !important;
+                height: 100vh !important;
+                display: flex !important;
+                align-items: center !important;
+                position: relative !important;
+                overflow: hidden !important;
+                background:
+                    linear-gradient(135deg, rgba(220, 53, 69, 0.2) 0%, rgba(0, 0, 0, 0.7) 50%, rgba(220, 53, 69, 0.3) 100%),
+                    url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center center/cover no-repeat !important;
+                background-attachment: scroll !important;
+            }
+            .hero-content {
+                text-align: center !important;
+                padding: 1.5rem 1rem !important;
+                width: 90% !important;
+                max-width: 400px !important;
+            }
+            .hero-content h1 {
+                font-size: 1.4rem !important;
+            }
+            .hero-content .subtitle {
+                font-size: 0.75rem !important;
+            }
+            .hero-content p {
+                font-size: 0.8rem !important;
+            }
+            .hero-badge {
+                font-size: 0.7rem !important;
+                padding: 8px 20px !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-section {
+                margin-top: 0 !important;
+                padding-top: 80px !important;
+                height: 100vh !important;
+                position: relative !important;
+                overflow: hidden !important;
+                background:
+                    linear-gradient(135deg, rgba(220, 53, 69, 0.2) 0%, rgba(0, 0, 0, 0.7) 50%, rgba(220, 53, 69, 0.3) 100%),
+                    url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center center/cover no-repeat !important;
+                background-attachment: scroll !important;
+            }
+            .hero-content {
+                padding: 1.3rem 0.8rem !important;
+                width: 85% !important;
+                max-width: 350px !important;
+            }
+            .hero-content h1 {
+                font-size: 1.3rem !important;
+            }
+            .hero-content .subtitle {
+                font-size: 0.7rem !important;
+            }
+            .hero-content p {
+                font-size: 0.8rem !important;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .hero-content {
+                padding: 1rem 0.6rem !important;
+                width: 80% !important;
+                max-width: 300px !important;
+            }
+            .hero-content h1 {
+                font-size: 1.1rem !important;
+            }
+            .hero-content .subtitle {
+                font-size: 0.65rem !important;
+            }
+            .hero-content p {
+                font-size: 0.75rem !important;
+            }
+            .hero-badge {
+                font-size: 0.65rem !important;
+                padding: 6px 16px !important;
+            }
+        }
+
+        /* CONTACT INFO SECTION MOBILE RESPONSIVENESS */
+        @media (max-width: 768px) {
+            .contact-info-section {
+                padding: 4rem 0 !important;
+            }
+            .contact-two-column-grid {
+                display: grid !important;
+                grid-template-columns: 1fr !important;
+                gap: 2rem !important;
+            }
+            .contact-cards-grid {
+                display: grid !important;
+                grid-template-columns: 1fr !important;
+                gap: 0.8rem !important;
+                margin-bottom: 1.5rem;
+            }
+            .contact-cards-grid .contact-card:nth-child(3) {
+                grid-column: unset !important;
+                max-width: none !important;
+                margin: 0 !important;
+            }
+            .contact-card {
+                padding: 0.8rem 0.6rem !important;
+                text-align: center !important;
+            }
+            .contact-card h3 {
+                font-size: 0.85rem !important;
+                margin-bottom: 0.5rem !important;
+            }
+            .contact-card .contact-detail span {
+                font-size: 0.75rem !important;
+                line-height: 1.3 !important;
+            }
+            .contact-icon {
+                width: 40px !important;
+                height: 40px !important;
+                margin: 0 auto 0.5rem !important;
+            }
+            .contact-icon i {
+                font-size: 18px !important;
+            }
+            /* Contact Form Mobile Styles */
+            .contact-form-container {
+                width: 100% !important;
+                max-width: none !important;
+                padding: 1.5rem !important;
+                margin: 0 !important;
+            }
+            .contact-form-container h3 {
+                font-size: 1.2rem !important;
+                text-align: center !important;
+                margin-bottom: 0.8rem !important;
+            }
+            .contact-form-container p {
+                font-size: 0.8rem !important;
+                text-align: center !important;
+                margin-bottom: 1.2rem !important;
+            }
+            .contact-form-grid {
+                display: grid !important;
+                grid-template-columns: 1fr !important;
+                gap: 1rem !important;
+            }
+            .form-group {
+                margin-bottom: 1rem !important;
+            }
+            .form-group label {
+                font-size: 0.8rem !important;
+                margin-bottom: 0.4rem !important;
+            }
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                padding: 0.8rem !important;
+                font-size: 0.85rem !important;
+                border-radius: 8px !important;
+            }
+            .form-group textarea {
+                min-height: 100px !important;
+            }
+            .btn-primary {
+                width: 100% !important;
+                padding: 1rem !important;
+                font-size: 0.9rem !important;
+                margin-top: 1rem !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-info-section {
+                padding: 3rem 0 !important;
+            }
+            .contact-cards-grid {
+                gap: 0.6rem !important;
+            }
+            .contact-cards-grid .contact-card:nth-child(3) {
+                grid-column: unset !important;
+                max-width: none !important;
+                margin: 0 !important;
+            }
+            .contact-card {
+                padding: 0.7rem 0.5rem !important;
+            }
+            .contact-card h3 {
+                font-size: 0.8rem !important;
+            }
+            .contact-card .contact-detail span {
+                font-size: 0.7rem !important;
+            }
+            .contact-icon {
+                width: 35px !important;
+                height: 35px !important;
+            }
+            .contact-icon i {
+                font-size: 16px !important;
+            }
+            .contact-form-container {
+                padding: 1rem !important;
+            }
+            .contact-form-container h3 {
+                font-size: 1.1rem !important;
+            }
+            .contact-form-container p {
+                font-size: 0.75rem !important;
+            }
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                padding: 0.7rem !important;
+                font-size: 0.8rem !important;
+            }
+            .form-group textarea {
+                min-height: 90px !important;
+            }
+            .btn-primary {
+                padding: 0.9rem !important;
+                font-size: 0.85rem !important;
+            }
+            .section-header h2 {
+                font-size: 1.3rem !important;
+            }
+            .section-header p {
+                font-size: 0.85rem !important;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .contact-info-section {
+                padding: 2.5rem 0 !important;
+            }
+            .contact-cards-grid {
+                gap: 0.5rem !important;
+            }
+            .contact-cards-grid .contact-card:nth-child(3) {
+                grid-column: unset !important;
+                max-width: none !important;
+                margin: 0 !important;
+            }
+            .contact-card {
+                padding: 0.6rem 0.4rem !important;
+            }
+            .contact-card h3 {
+                font-size: 0.75rem !important;
+            }
+            .contact-card .contact-detail span {
+                font-size: 0.65rem !important;
+            }
+            .contact-icon {
+                width: 30px !important;
+                height: 30px !important;
+            }
+            .contact-icon i {
+                font-size: 14px !important;
+            }
+            .contact-form-container {
+                padding: 0.8rem !important;
+            }
+            .contact-form-container h3 {
+                font-size: 1rem !important;
+            }
+            .contact-form-container p {
+                font-size: 0.7rem !important;
+            }
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                padding: 0.6rem !important;
+                font-size: 0.75rem !important;
+            }
+            .form-group textarea {
+                min-height: 80px !important;
+            }
+            .btn-primary {
+                padding: 0.8rem !important;
+                font-size: 0.8rem !important;
+            }
+            .section-header h2 {
+                font-size: 1.2rem !important;
+            }
+            .section-header p {
+                font-size: 0.8rem !important;
+            }
+        }
+
+        /* MAP SECTION MOBILE RESPONSIVENESS */
+        @media (max-width: 768px) {
+            .map-section {
+                padding: 4rem 0 !important;
+            }
+            .map-container {
+                height: 350px !important;
+                border-radius: 15px !important;
+                margin: 0 1rem !important;
+            }
+            .map-container iframe {
+                border-radius: 15px !important;
+            }
+            .section-header h2 {
+                font-size: 1.5rem !important;
+                margin-bottom: 1rem !important;
+            }
+            .section-header p {
+                font-size: 0.9rem !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .map-section {
+                padding: 3rem 0 !important;
+            }
+            .map-container {
+                height: 280px !important;
+                border-radius: 12px !important;
+                margin: 0 0.5rem !important;
+            }
+            .map-container iframe {
+                border-radius: 12px !important;
+            }
+            .section-header h2 {
+                font-size: 1.3rem !important;
+            }
+            .section-header p {
+                font-size: 0.85rem !important;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .map-section {
+                padding: 2.5rem 0 !important;
+            }
+            .map-container {
+                height: 250px !important;
+                border-radius: 10px !important;
+                margin: 0 0.25rem !important;
+            }
+            .map-container iframe {
+                border-radius: 10px !important;
+            }
+            .section-header h2 {
+                font-size: 1.2rem !important;
+            }
+            .section-header p {
+                font-size: 0.8rem !important;
+            }
+        }
+
+        /* EMERGENCY SUPPORT SECTION MOBILE RESPONSIVENESS */
+        @media (max-width: 768px) {
+            .emergency-support {
+                padding: 3rem 0 !important;
+            }
+            .emergency-support h2 {
+                font-size: 1.5rem !important;
+                margin-bottom: 1rem !important;
+            }
+            .emergency-support p {
+                font-size: 0.9rem !important;
+                margin-bottom: 1.5rem !important;
+                padding: 0 1rem !important;
+            }
+            .emergency-buttons {
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 1rem !important;
+                align-items: center !important;
+                padding: 0 1rem !important;
+            }
+            .emergency-btn {
+                width: 100% !important;
+                max-width: 280px !important;
+                padding: 1rem 1.5rem !important;
+                font-size: 0.9rem !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .emergency-support {
+                padding: 2.5rem 0 !important;
+            }
+            .emergency-support h2 {
+                font-size: 1.3rem !important;
+                margin-bottom: 0.8rem !important;
+            }
+            .emergency-support p {
+                font-size: 0.85rem !important;
+                margin-bottom: 1.2rem !important;
+                padding: 0 0.5rem !important;
+            }
+            .emergency-buttons {
+                gap: 0.8rem !important;
+                padding: 0 0.5rem !important;
+            }
+            .emergency-btn {
+                max-width: 260px !important;
+                padding: 0.9rem 1.2rem !important;
+                font-size: 0.85rem !important;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .emergency-support {
+                padding: 2rem 0 !important;
+            }
+            .emergency-support h2 {
+                font-size: 1.2rem !important;
+                margin-bottom: 0.6rem !important;
+            }
+            .emergency-support p {
+                font-size: 0.8rem !important;
+                margin-bottom: 1rem !important;
+                padding: 0 0.25rem !important;
+            }
+            .emergency-buttons {
+                gap: 0.6rem !important;
+                padding: 0 0.25rem !important;
+            }
+            .emergency-btn {
+                max-width: 240px !important;
+                padding: 0.8rem 1rem !important;
+                font-size: 0.8rem !important;
+            }
+        }
+    </style>
+</head>
+<body class="loading">
+    <!-- Header -->
+    <header id="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-top-content">
+                    <a href="../index.html" class="logo">
+                        <img src="../assets/logo.png" alt="X Point Fire System Logo" class="logo-image">
+                    </a>
+                    <div class="contact-info-header">
+                        <div class="phone-group">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="phone-details">
+                                <span class="office-label">Dubai Office</span>
+                                <a href="tel:+97142641107" class="phone-number">+971 4 2641 107</a>
+                            </div>
+                        </div>
+                        <div class="email-group">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <a href="mailto:info@xpointfiresystem.ae" class="email-value">info@xpointfiresystem.ae</a>
+                        </div>
+                    </div>
+                    <div class="login-section">
+                        <button class="login-btn" id="login-btn">
+                            <i class="fas fa-user"></i> Login
+                        </button>
+                        <div class="login-form" id="login-form">
+                            <form>
+                                <input type="text" placeholder="Username" required>
+                                <input type="password" placeholder="Password" required>
+                                <button type="submit">Sign In</button>
+                                <button type="button" class="close-login" id="close-login">×</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+
+                </div>
+
+                <!-- Mobile Menu Dropdown -->
+                <div class="mobile-menu" id="mobile-menu">
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li class="mobile-services">
+                            <div class="mobile-services-header">
+                                <a href="services.html">Services</a>
+                                <button class="mobile-services-toggle"><i class="fas fa-chevron-down"></i></button>
+                            </div>
+                            <div class="mobile-services-menu">
+                                <a href="services/fire-alarm-system.html">Fire Alarm Systems</a>
+                                <a href="services/fire-fighting-system.html">Fire Fighting Systems</a>
+                                <a href="services/fire-suppression.html">Fire Suppression Systems</a>
+                                <a href="services/emergency-exit-light.html">Emergency Exit Lighting</a>
+                                <a href="services/aerosol-system.html">Aerosol Systems</a>
+                                <a href="services/fm200-system.html">FM200 Systems</a>
+                                <a href="services/kitchen-hood-system.html">Kitchen Hood Systems</a>
+                                <a href="services/fire-pump-system.html">Fire Pump Systems</a>
+                                <a href="services/fire-sprinkler-system.html">Fire Sprinkler Systems</a>
+                                <a href="services/voice-evacuation-system.html">Voice Evacuation Systems</a>
+                            </div>
+                        </li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="clients.html">Clients</a></li>
+                        <li><a href="contact.html" class="active">Contact</a></li>
+                        <li class="nav-support">
+                            <a href="contact.html">
+                                <i class="fas fa-clock"></i>
+                                <span>24/7 Emergency Support</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="header-nav">
+            <div class="container">
+                <nav class="main-nav">
+                    <div class="nav-logo">
+                        <img src="../assets/logo.png" alt="X Point Fire System Logo" class="nav-logo-image">
+                    </div>
+                    <ul id="nav-menu">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li class="services-dropdown">
+                            <a href="services.html">Services <i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-content">
+                                    <a href="services/fire-alarm-system.html" class="dropdown-item">
+                                        <i class="fas fa-bell"></i>
+                                        <span>Fire Alarm Systems</span>
+                                    </a>
+                                    <a href="services/fire-fighting-system.html" class="dropdown-item">
+                                        <i class="fas fa-fire-extinguisher"></i>
+                                        <span>Fire Fighting Systems</span>
+                                    </a>
+                                    <a href="services/fire-suppression.html" class="dropdown-item">
+                                        <i class="fas fa-spray-can"></i>
+                                        <span>Fire Suppression Systems</span>
+                                    </a>
+                                    <a href="services/emergency-exit-light.html" class="dropdown-item">
+                                        <i class="fas fa-lightbulb"></i>
+                                        <span>Emergency Exit Lighting</span>
+                                    </a>
+                                    <a href="services/fm200-system.html" class="dropdown-item">
+                                        <i class="fas fa-cloud"></i>
+                                        <span>FM200 Systems</span>
+                                    </a>
+                                    <a href="services/kitchen-hood-system.html" class="dropdown-item">
+                                        <i class="fas fa-utensils"></i>
+                                        <span>Kitchen Hood Systems</span>
+                                    </a>
+                                    <a href="services/fire-pump-system.html" class="dropdown-item">
+                                        <i class="fas fa-tint"></i>
+                                        <span>Fire Pump Systems</span>
+                                    </a>
+                                    <a href="services/aerosol-system.html" class="dropdown-item">
+                                        <i class="fas fa-shield-alt"></i>
+                                        <span>Aerosol Systems</span>
+                                    </a>
+                                    <a href="services/fire-sprinkler-system.html" class="dropdown-item">
+                                        <i class="fas fa-shower"></i>
+                                        <span>Fire Sprinkler Systems</span>
+                                    </a>
+                                    <a href="services/voice-evacuation-system.html" class="dropdown-item">
+                                        <i class="fas fa-volume-up"></i>
+                                        <span>Voice Evacuation Systems</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="clients.html">Clients</a></li>
+                        <li><a href="contact.html" class="active">Contact</a></li>
+                        <li class="nav-support">
+                            <a href="contact.html">
+                                <i class="fas fa-clock"></i>
+                                <span>24/7 Emergency Support</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="nav-contact">
+                        <a href="tel:+97142641107" class="nav-phone"><i class="fas fa-phone"></i> +971 4 2641 107</a>
+                        <a href="mailto:info@xpointfiresystem.ae" class="nav-email"><i class="fas fa-envelope"></i> info@xpointfiresystem.ae</a>
+                    </div>
+                    <button class="menu-toggle" id="menu-toggle">☰</button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <span class="hero-badge">Fire Safety Experts</span>
+            <h1>Contact X Point Fire System</h1>
+            <p class="subtitle">Best Fire Safety Company in Dubai</p>
+            <p>Get expert fire protection and safety consultation from A+ certified professionals in Dubai, UAE. We're here to help with all your fire protection requirements across Dubai and UAE.</p>
+        </div>
+    </section>
+
+    <!-- Contact Info Section -->
+    <section class="contact-info-section" id="contact-info">
+        <div class="waves">
+            <div class="wave wave1"></div>
+            <div class="wave wave2"></div>
+            <div class="wave wave3"></div>
+            <div class="wave wave4"></div>
+        </div>
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2>Get In Touch With Our Fire Safety Experts</h2>
+                <p>We're here to help with all your fire protection and safety requirements across Dubai and UAE</p>
+            </div>
+            <div class="contact-two-column-grid animate-on-scroll">
+                <div class="contact-cards-container">
+                    <div class="contact-cards-grid">
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <h3>Dubai Office Address</h3>
+                            <div class="contact-detail">
+                                <strong>Main Office</strong>
+                                <span>Mohammed Omar Mohammed Al Jabiri Complex<br>
+                                Unit No. 19, 19th Street, Damascus Street<br>
+                                Al Qusais 1, Dubai, UAE</span>
+                            </div>
+                        </div>
+
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <h3>Phone & Communication</h3>
+                            <div class="contact-detail">
+                                <strong>Phone</strong>
+                                <a href="tel:+97142641107">+971 4 2641 107</a>
+                            </div>
+                            <div class="contact-detail">
+                                <strong>Email</strong>
+                                <a href="mailto:info@xpointfiresystem.ae">info@xpointfiresystem.ae</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <h3>Business Hours & Support</h3>
+                            <div class="contact-detail">
+                                <strong>Office Hours</strong>
+                                <span>Sunday - Thursday: 8:00 AM - 6:00 PM<br>
+                                Friday: 8:00 AM - 12:00 PM<br>
+                                Saturday: Closed</span>
+                            </div>
+                            <div class="contact-detail">
+                                <strong>Emergency Support</strong>
+                                <span>24/7 Available</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-container">
+                    <h3>Send Us Your Requirements</h3>
+                    <p>Fill out the form and our fire safety experts will get back to you within 24 hours</p>
+                    <form class="contact-form-grid" action="#" method="POST">
+                        <div class="form-group">
+                            <label for="name"><i class="fas fa-user"></i> Your Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email"><i class="fas fa-envelope"></i> Your Email *</label>
+                            <input type="email" id="email" name="email" required placeholder="your.email@company.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone"><i class="fas fa-phone"></i> Phone *</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="+971 XX XXX XXXX">
+                        </div>
+                        <div class="form-group">
+                            <label for="company"><i class="fas fa-building"></i> Company</label>
+                            <input type="text" id="company" name="company" placeholder="Your company name">
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="service"><i class="fas fa-fire-extinguisher"></i> Service of Interest</label>
+                            <select id="service" name="service">
+                                <option value="">Select a service...</option>
+                                <option value="fire-alarm">Fire Alarm Systems</option>
+                                <option value="fire-fighting">Fire Fighting Systems</option>
+                                <option value="fire-suppression">Fire Suppression Systems</option>
+                                <option value="emergency-lighting">Emergency Exit Lighting</option>
+                                <option value="fm200">FM 200 Clean Agent Systems</option>
+                                <option value="voice-evacuation">Voice Evacuation Systems</option>
+                                <option value="kitchen-hood">Kitchen Hood Systems</option>
+                                <option value="aerosol">Aerosol Fire Suppression</option>
+                                <option value="fire-pump">Fire Pump Systems</option>
+                                <option value="sprinkler">Fire Sprinkler Systems</option>
+                                <option value="maintenance">Annual Maintenance Contract</option>
+                                <option value="inspection">Fire Safety Inspection</option>
+                                <option value="consultation">General Consultation</option>
+                                <option value="emergency">Emergency Repair Service</option>
+                            </select>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="message"><i class="fas fa-comment-alt"></i> Message</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Tell us about your fire safety requirements, project details, or any specific questions you have..."></textarea>
+                        </div>
+                        <div class="form-group full-width">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i> Send Message
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Map Section -->
+    <section class="map-section" id="office-location">
+        <div class="waves">
+            <div class="wave wave1"></div>
+            <div class="wave wave2"></div>
+            <div class="wave wave3"></div>
+            <div class="wave wave4"></div>
+        </div>
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2>Find Our Dubai Office</h2>
+                <p>Located in the heart of Al Qusais 1, Dubai for easy accessibility across the UAE</p>
+            </div>
+            <div class="map-container animate-on-scroll">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.1234567890123!2d55.3872!3d25.2048!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDEyJzE3LjMiTiA1NcKwMjMnMTQuMCJF!5e0!3m2!1sen!2sae!4v1629875432109!5m2!1sen!2sae&zoom=15&center=25.288056,55.387222"
+                    width="100%"
+                    height="500"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="X Point Fire System Dubai Office Location - Al Qusais 1, Dubai, UAE">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emergency Support Section -->
+    <section class="emergency-support" id="emergency-support">
+        <div class="waves">
+            <div class="wave wave1"></div>
+            <div class="wave wave2"></div>
+            <div class="wave wave3"></div>
+            <div class="wave wave4"></div>
+        </div>
+        <div class="container">
+            <h2>Need Emergency Fire Safety Support?</h2>
+            <p>Our dedicated emergency response team is available 24/7 for urgent fire safety situations and repair services</p>
+            <div class="emergency-buttons">
+                <a href="tel:+97142641107" class="emergency-btn">
+                    <i class="fas fa-phone-alt"></i>
+                    Emergency Call: +971 4 2641 107
+                </a>
+                <a href="https://wa.me/971426411077?text=Hello%2C%20I%20need%20emergency%20fire%20safety%20assistance" target="_blank" class="emergency-btn">
+                    <i class="fab fa-whatsapp"></i>
+                    WhatsApp Emergency Support
+                </a>
+                <a href="mailto:emergency@xpointfiresystem.ae?subject=Emergency Fire Safety Support Required" class="emergency-btn">
+                    <i class="fas fa-envelope"></i>
+                    Email Emergency Team
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="waves">
+            <div class="wave wave1"></div>
+            <div class="wave wave2"></div>
+            <div class="wave wave3"></div>
+            <div class="wave wave4"></div>
+        </div>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="../assets/logo.png" alt="X Point Fire System Logo">
+                    </div>
+                    <p class="company-description">X Point Fire System is a fire protection and safety services provider operating in UAE. Company was established by a group of fire and safety experts to cater the needs of companies that need to follow the fire & safety regulation implemented in the region.</p>
+                </div>
+                <div class="footer-section">
+                    <h3 class="white-bg-heading"><i class="fas fa-fire-extinguisher"></i>Our Services</h3>
+                    <ul>
+                        <li><a href="services/fire-alarm-system.html"><i class="fas fa-bell"></i>Fire Alarm Systems</a></li>
+                        <li><a href="services/fire-fighting-system.html"><i class="fas fa-fire"></i>Fire Fighting Systems</a></li>
+                        <li><a href="services/fire-suppression.html"><i class="fas fa-spray-can"></i>Fire Suppression</a></li>
+                        <li><a href="services/emergency-exit-light.html"><i class="fas fa-sign-out-alt"></i>Emergency Exit Lighting</a></li>
+                        <li><a href="services.html"><i class="fas fa-list"></i>View All Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3 class="white-bg-heading"><i class="fas fa-link"></i>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html"><i class="fas fa-home"></i>Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-info-circle"></i>About Us</a></li>
+                        <li><a href="projects.html"><i class="fas fa-briefcase"></i>Projects</a></li>
+                        <li><a href="clients.html"><i class="fas fa-users"></i>Clients</a></li>
+                        <li><a href="contact.html"><i class="fas fa-envelope"></i>Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3><i class="fas fa-map-marker-alt"></i>Contact Information</h3>
+                    <div class="contact-info">
+                        <strong><i class="fas fa-building"></i> Dubai Office</strong>
+                        Mohammed Omar Mohammed Al Jabiri Complex<br>
+                        Unit No. 19, 19th Street, Damascus Street<br>
+                        Al Qusais 1, Dubai, UAE
+                    </div>
+                    <div class="contact-info">
+                        <strong><i class="fas fa-phone"></i> Phone</strong>
+                        <a href="tel:+97142641107">+971 4 2641 107</a>
+                        <strong><i class="fas fa-envelope"></i> Email</strong>
+                        <a href="mailto:info@xpointfiresystem.ae">info@xpointfiresystem.ae</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 X Point Fire System. All rights reserved. | Fire Protection Experts UAE</p>
+            </div>
+        </div>
+        <div class="bottom-waves">
+            <div class="wave wave1"></div>
+            <div class="wave wave2"></div>
+            <div class="wave wave3"></div>
+            <div class="wave wave4"></div>
+        </div>
+    </footer>
+
+    <!-- Floating Buttons -->
+    <div id="scrollTopBtn" class="floating-btn scroll-top-btn">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <a href="tel:+97142641107" class="floating-btn call-btn">
+        <i class="fas fa-phone"></i>
+    </a>
+
+    <a href="https://wa.me/971426411077?text=Hello%2C%20I%20would%20like%20to%20know%20more%20about%20your%20fire%20safety%20services." target="_blank" class="floating-btn whatsapp-btn">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 Contact Page DOMContentLoaded fired - JavaScript is running!');
+
+            // Remove loading class
+            document.body.classList.remove('loading');
+
+            // Header scroll effect
+            const header = document.getElementById('header');
+            const headerTop = document.querySelector('.header-top');
+            let isScrolled = false;
+
+            if (header) {
+                header.style.position = 'fixed';
+                header.style.top = '0';
+                header.style.left = '0';
+                header.style.width = '100%';
+                header.style.zIndex = '1000';
+            }
+
+            function handleScroll() {
+                const scrollY = window.scrollY || window.pageYOffset;
+                const isMobile = window.innerWidth <= 768;
+
+                if (scrollY > 50 && !isScrolled) {
+                    isScrolled = true;
+                    if (header) {
+                        header.classList.add('scrolled');
+                    }
+                    if (headerTop && !isMobile) {
+                        headerTop.style.transform = 'translateY(-100%)';
+                        headerTop.style.opacity = '0';
+                        const topRowHeight = headerTop.offsetHeight;
+                        header.style.transform = `translateY(-${topRowHeight + 1}px)`;
+                    }
+                } else if (scrollY <= 50 && isScrolled) {
+                    isScrolled = false;
+                    if (header) {
+                        header.classList.remove('scrolled');
+                    }
+                    if (headerTop && !isMobile) {
+                        headerTop.style.transform = 'translateY(0)';
+                        headerTop.style.opacity = '1';
+                        header.style.transform = 'translateY(0)';
+                    }
+                }
+            }
+
+            let ticking = false;
+
+            window.addEventListener('scroll', function() {
+                if (!ticking) {
+                    requestAnimationFrame(function() {
+                        handleScroll();
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            }, { passive: true });
+
+            // Mobile menu toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    mobileMenu.classList.toggle('active');
+                });
+
+                const mobileLinks = mobileMenu.querySelectorAll('a:not(.mobile-services-toggle)');
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        if (!link.classList.contains('mobile-services-toggle')) {
+                            mobileMenu.classList.remove('active');
+                        }
+                    });
+                });
+
+                document.addEventListener('click', function(e) {
+                    if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                        mobileMenu.classList.remove('active');
+                    }
+                });
+            }
+
+            // Mobile services dropdown toggle
+            const mobileServicesToggle = document.querySelector('.mobile-services-toggle');
+            const mobileServices = document.querySelector('.mobile-services');
+
+            if (mobileServicesToggle && mobileServices) {
+                mobileServicesToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    mobileServices.classList.toggle('active');
+                });
+            }
+
+            // Login form toggle
+            const loginBtn = document.getElementById('login-btn');
+            const loginForm = document.getElementById('login-form');
+            const closeLogin = document.getElementById('close-login');
+
+            if (loginBtn && loginForm && closeLogin) {
+                loginBtn.addEventListener('click', function() {
+                    loginForm.classList.toggle('active');
+                });
+
+                closeLogin.addEventListener('click', function() {
+                    loginForm.classList.remove('active');
+                });
+
+                // Close login form when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!loginBtn.contains(e.target) && !loginForm.contains(e.target)) {
+                        loginForm.classList.remove('active');
+                    }
+                });
+            }
+
+            // Hero contact form validation and enhancement
+            const heroForm = document.querySelector('.hero-contact-form');
+            if (heroForm) {
+                heroForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+
+                    // Get form data
+                    const formData = new FormData(this);
+                    const name = formData.get('name');
+                    const email = formData.get('email');
+                    const phone = formData.get('phone');
+                    const service = formData.get('service');
+                    const message = formData.get('message');
+
+                    // Basic validation
+                    if (!name || !email || !phone) {
+                        alert('Please fill in all required fields.');
+                        return;
+                    }
+
+                    // Email validation
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(email)) {
+                        alert('Please enter a valid email address.');
+                        return;
+                    }
+
+                    // Show success message
+                    const submitBtn = this.querySelector('.submit-btn');
+                    const originalText = submitBtn.innerHTML;
+                    submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+                    submitBtn.style.background = 'linear-gradient(135deg, #28a745, #20c997)';
+
+                    // Reset form after 3 seconds
+                    setTimeout(() => {
+                        this.reset();
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.style.background = '';
+                    }, 3000);
+
+                    // Here you would normally send the data to your server
+                    console.log('Form submitted:', { name, email, phone, service, message });
+                });
+            }
+
+            // Menu toggle for desktop
+            const menuToggle = document.getElementById('menu-toggle');
+            const navMenu = document.getElementById('nav-menu');
+
+            if (menuToggle && navMenu) {
+                menuToggle.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                });
+            }
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        const offsetTop = target.offsetTop - 120;
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Scroll animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                requestAnimationFrame(() => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('animated');
+                        }
+                    });
+                });
+            }, observerOptions);
+
+            // Observe all animate-on-scroll elements
+            document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Contact form validation and enhancement
+            const contactForm = document.querySelector('.contact-form-grid');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+
+                    // Get form data
+                    const formData = new FormData(this);
+                    const submitBtn = this.querySelector('.btn-primary');
+                    const originalText = submitBtn.innerHTML;
+
+                    // Show loading state
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                    submitBtn.disabled = true;
+
+                    // Simulate form submission (replace with actual form handling)
+                    setTimeout(() => {
+                        // Show success message
+                        submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+                        submitBtn.style.background = 'linear-gradient(135deg, #28a745, #20c997)';
+
+                        // Reset form
+                        this.reset();
+
+                        // Reset button after 3 seconds
+                        setTimeout(() => {
+                            submitBtn.innerHTML = originalText;
+                            submitBtn.style.background = 'linear-gradient(135deg, #dc3545, #c82333)';
+                            submitBtn.disabled = false;
+                        }, 3000);
+
+                        // Show alert
+                        alert('Thank you for your message! Our fire safety experts will contact you within 24 hours.');
+                    }, 2000);
+                });
+            }
+
+            // Form field enhancements
+            const formInputs = document.querySelectorAll('input, textarea, select');
+            formInputs.forEach(input => {
+                input.addEventListener('focus', function() {
+                    this.parentElement.classList.add('focused');
+                });
+
+                input.addEventListener('blur', function() {
+                    if (this.value === '') {
+                        this.parentElement.classList.remove('focused');
+                    }
+                });
+            });
+
+            // Contact cards hover effects
+            const contactCards = document.querySelectorAll('.contact-card');
+            contactCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    const icon = this.querySelector('.contact-icon');
+                    icon.style.transform = 'scale(1.1) rotate(5deg)';
+                });
+
+                card.addEventListener('mouseleave', function() {
+                    const icon = this.querySelector('.contact-icon');
+                    icon.style.transform = 'scale(1) rotate(0deg)';
+                });
+            });
+
+            // Emergency buttons animation
+            const emergencyBtns = document.querySelectorAll('.emergency-btn');
+            emergencyBtns.forEach(btn => {
+                btn.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-3px) scale(1.02)';
+                });
+
+                btn.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+            // Scroll to top button functionality
+            const scrollTopBtn = document.getElementById('scrollTopBtn');
+            if (scrollTopBtn) {
+                window.addEventListener('scroll', () => {
+                    if (window.pageYOffset > 300) {
+                        scrollTopBtn.style.display = 'flex';
+                    } else {
+                        scrollTopBtn.style.display = 'none';
+                    }
+                });
+
+                scrollTopBtn.addEventListener('click', () => {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+
+            // Phone number formatting
+            const phoneInput = document.getElementById('phone');
+            if (phoneInput) {
+                phoneInput.addEventListener('input', function(e) {
+                    let value = e.target.value.replace(/\D/g, '');
+
+                    // Auto-add +971 if not present
+                    if (value.length > 0 && !value.startsWith('971')) {
+                        if (value.startsWith('0')) {
+                            value = '971' + value.substring(1);
+                        } else if (!value.startsWith('971')) {
+                            value = '971' + value;
+                        }
+                    }
+
+                    // Format as +971 XX XXX XXXX
+                    if (value.length >= 3) {
+                        value = '+' + value.substring(0, 3) + ' ' +
+                               (value.substring(3, 5) ? value.substring(3, 5) + ' ' : '') +
+                               (value.substring(5, 8) ? value.substring(5, 8) + ' ' : '') +
+                               value.substring(8, 12);
+                    }
+
+                    e.target.value = value;
+                });
+            }
+
+            // Add loading effect to buttons
+            document.querySelectorAll('.btn, .emergency-btn').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    // Add click effect for non-form buttons
+                    if (this.type !== 'submit') {
+                        this.style.transform = 'scale(0.95)';
+                        setTimeout(() => {
+                            this.style.transform = '';
+                        }, 150);
+                    }
+                });
+            });
+
+            // Map iframe enhancement
+            const mapIframe = document.querySelector('.map-container iframe');
+            if (mapIframe) {
+                mapIframe.addEventListener('load', function() {
+                    this.style.opacity = '1';
+                    this.style.transition = 'opacity 0.5s ease';
+                });
+            }
+
+            console.log('✅ X Point Fire System Contact Page loaded successfully!');
+        });
+
+        // Error handling
+        window.addEventListener('error', function(e) {
+            console.error('An error occurred:', e.error);
+        });
+
+        // Performance monitoring
+        window.addEventListener('load', function() {
+            const loadTime = performance.now();
+            console.log(`📊 Page loaded in ${loadTime.toFixed(2)}ms`);
+        });
+    </script>
+</body>
+</html>
