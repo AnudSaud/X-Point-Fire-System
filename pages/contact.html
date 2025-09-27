@@ -8,6 +8,7 @@
     <link rel="icon" type="image/png" href="../assets/logo.png">
     <link rel="apple-touch-icon" href="../assets/logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../assets/pageLoader.css">
 
     <style>
         * {
@@ -1959,7 +1960,7 @@
             }
             #header .header-top-content {
                 display: flex !important;
-                justify-content: center !important;
+                justify-content: space-between !important;
                 align-items: center !important;
                 gap: 1rem !important;
                 flex-wrap: nowrap !important;
@@ -1967,6 +1968,7 @@
             }
             #header .logo {
                 flex: 0 0 auto !important;
+                margin-left: 1rem !important;
             }
             #header .logo-image {
                 height: 50px !important;
@@ -1976,15 +1978,43 @@
                 display: none !important;
             }
             #header .login-section {
-                display: none !important;
+                display: block !important;
+                position: absolute !important;
+                right: 4rem !important;
+                top: 50% !important;
+                transform: translateY(-50%) !important;
+                z-index: 1000 !important;
+                margin: 0 !important;
+                padding: 0 !important;
             }
-            /* HIDE THE SECOND ROW NAV BAR */
+
+            #header .login-btn {
+                padding: 0.4rem 0.6rem !important;
+                font-size: 0.75rem !important;
+                border-radius: 6px !important;
+                background: linear-gradient(135deg, #dc3545, #c82333) !important;
+                border: none !important;
+                color: white !important;
+                line-height: 1.2 !important;
+                height: 2.4rem !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                gap: 0.3rem !important;
+                margin: 0 !important;
+            }
+
+            #header .login-form {
+                right: -20px !important;
+                width: 200px !important;
+                font-size: 0.85rem !important;
+            }            /* HIDE THE SECOND ROW NAV BAR */
             #header .header-nav {
                 display: none !important;
             }
             /* MOBILE MENU BUTTON */
             .mobile-menu-btn {
-                display: block !important;
+                display: flex !important;
                 position: absolute !important;
                 right: 1rem !important;
                 top: 50% !important;
@@ -1997,6 +2027,11 @@
                 border-radius: 6px !important;
                 background: rgba(220, 53, 69, 0.1) !important;
                 z-index: 1001 !important;
+                height: 2.4rem !important;
+                align-items: center !important;
+                justify-content: center !important;
+                line-height: 1.2 !important;
+                margin: 0 !important;
             }
             .mobile-menu-btn:hover {
                 background: rgba(220, 53, 69, 0.2) !important;
@@ -2079,7 +2114,7 @@
                 justify-content: center !important;
                 padding: 1rem 1.5rem !important;
                 border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-                gap: 0.8rem !important;
+                gap: 0.3rem !important;
             }
             .mobile-services-header a {
                 color: #ffffff !important;
@@ -2303,7 +2338,7 @@
             .contact-cards-grid {
                 display: grid !important;
                 grid-template-columns: 1fr !important;
-                gap: 0.8rem !important;
+                gap: 0.3rem !important;
                 margin-bottom: 1.5rem;
             }
             .contact-cards-grid .contact-card:nth-child(3) {
@@ -2599,7 +2634,7 @@
                 padding: 0 0.5rem !important;
             }
             .emergency-buttons {
-                gap: 0.8rem !important;
+                gap: 0.3rem !important;
                 padding: 0 0.5rem !important;
             }
             .emergency-btn {
@@ -3425,5 +3460,7 @@
             console.log(`📊 Page loaded in ${loadTime.toFixed(2)}ms`);
         });
     </script>
+    <!-- Page Navigation Loader -->
+    <script src="../assets/js/pageLoader.js"></script>
 </body>
 </html>
