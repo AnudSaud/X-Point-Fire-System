@@ -96,20 +96,37 @@
         /* Mobile preloader positioning fix */
         @media (max-width: 768px) {
             .water-preloader {
-                height: 100vh !important;
-                height: 100dvh !important; /* Dynamic viewport height for modern browsers */
                 position: fixed !important;
                 top: 0 !important;
                 left: 0 !important;
                 right: 0 !important;
                 bottom: 0 !important;
                 width: 100vw !important;
+                height: 100vh !important;
+                min-height: 100vh !important;
+                max-height: 100vh !important;
+                height: 100dvh !important; /* Dynamic viewport height for modern browsers */
+                min-height: 100dvh !important;
+                max-height: 100dvh !important;
                 display: flex !important;
                 align-items: center !important;
                 justify-content: center !important;
+                flex-direction: column !important;
                 transform: none !important;
                 margin: 0 !important;
                 padding: 0 !important;
+                border: none !important;
+                outline: none !important;
+                box-sizing: border-box !important;
+                overflow: hidden !important;
+                -webkit-overflow-scrolling: touch !important;
+            }
+
+            .water-preloader .loading {
+                position: relative !important;
+                transform: translateY(0) !important;
+                margin: auto !important;
+                display: block !important;
             }
         }
 
@@ -5475,6 +5492,53 @@
             <rect class="water-fill" mask="url(#text_mask)" fill="url(#water)" x="-400" y="0" width="1600" height="120"/>
         </svg>
     </div>
+
+    <!-- IMMEDIATE mobile preloader positioning fix -->
+    <script>
+        (function() {
+            // Apply fix immediately as soon as the preloader element exists
+            const preloader = document.getElementById('waterPreloader');
+            if (preloader && (window.innerWidth <= 768 || window.innerHeight <= 768 || /Mobi|Android/i.test(navigator.userAgent))) {
+                console.log('📱 IMMEDIATE mobile preloader fix applying...');
+
+                // Apply critical styles immediately using direct style setting
+                preloader.style.cssText = `
+                    position: fixed !important;
+                    top: 0 !important;
+                    left: 0 !important;
+                    right: 0 !important;
+                    bottom: 0 !important;
+                    width: 100vw !important;
+                    height: 100vh !important;
+                    min-height: 100vh !important;
+                    max-height: 100vh !important;
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: center !important;
+                    flex-direction: column !important;
+                    transform: none !important;
+                    margin: 0 !important;
+                    padding: 0 !important;
+                    border: none !important;
+                    outline: none !important;
+                    box-sizing: border-box !important;
+                    overflow: hidden !important;
+                    z-index: 99999 !important;
+                    background: #dc3545 !important;
+                    background: linear-gradient(to left, #dc3545, #c82333) !important;
+                    font-family: 'Oswald', sans-serif !important;
+                    letter-spacing: 6px !important;
+                    transition: opacity 0.8s ease, visibility 0.8s ease !important;
+                `;
+
+                // Force immediate reflow
+                preloader.offsetHeight;
+
+                console.log('✅ IMMEDIATE fix applied');
+            }
+        })();
+    </script>
+
     <!-- Header -->
     <header id="header">
         <!-- Top Row -->
@@ -6184,6 +6248,52 @@
 
             // Water Preloader Control
             const preloader = document.getElementById('waterPreloader');
+
+            // IMMEDIATE mobile positioning fix - apply before anything else
+            if (preloader && (window.innerWidth <= 768 || window.innerHeight <= 768)) {
+                console.log('📱 Applying mobile preloader positioning fix...');
+
+                // Force proper positioning immediately
+                const styles = {
+                    position: 'fixed',
+                    top: '0',
+                    left: '0',
+                    right: '0',
+                    bottom: '0',
+                    width: '100vw',
+                    height: '100vh',
+                    minHeight: '100vh',
+                    maxHeight: '100vh',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    flexDirection: 'column',
+                    transform: 'none',
+                    margin: '0',
+                    padding: '0',
+                    border: 'none',
+                    outline: 'none',
+                    boxSizing: 'border-box',
+                    overflow: 'hidden',
+                    zIndex: '99999'
+                };
+
+                // Apply all styles
+                Object.assign(preloader.style, styles);
+
+                // Force reflow multiple times
+                preloader.offsetHeight;
+                preloader.offsetWidth;
+
+                // Set viewport height again for iOS
+                setTimeout(() => {
+                    preloader.style.height = '100vh';
+                    preloader.style.minHeight = '100vh';
+                    preloader.offsetHeight;
+                }, 0);
+
+                console.log('✅ Mobile positioning applied');
+            }
 
             // Check if user has already seen preloader in this session
             const hasSeenPreloader = sessionStorage.getItem('preloaderShown');
