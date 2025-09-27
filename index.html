@@ -5496,8 +5496,20 @@
     <!-- IMMEDIATE mobile preloader positioning fix -->
     <script>
         (function() {
-            // Apply fix immediately as soon as the preloader element exists
+            // IMMEDIATE session check - hide preloader if already seen
             const preloader = document.getElementById('waterPreloader');
+            const hasSeenPreloader = sessionStorage.getItem('preloaderShown');
+
+            if (hasSeenPreloader) {
+                // User has already seen preloader in this session - hide immediately
+                if (preloader) {
+                    preloader.style.display = 'none';
+                    console.log('🚫 Preloader hidden - already seen in this session');
+                }
+                return; // Exit early, no need to apply positioning fixes
+            }
+
+            // First time in this session - apply mobile positioning fix if needed
             if (preloader && (window.innerWidth <= 768 || window.innerHeight <= 768 || /Mobi|Android/i.test(navigator.userAgent))) {
                 console.log('📱 IMMEDIATE mobile preloader fix applying...');
 
@@ -5536,6 +5548,10 @@
 
                 console.log('✅ IMMEDIATE fix applied');
             }
+
+            // Mark preloader as shown for this session (first time visitor)
+            sessionStorage.setItem('preloaderShown', 'true');
+            console.log('✅ Preloader session marked - first time visitor');
         })();
     </script>
 
@@ -6295,64 +6311,12 @@
                 console.log('✅ Mobile positioning applied');
             }
 
-            // Check if user has already seen preloader in this session
-            const hasSeenPreloader = sessionStorage.getItem('preloaderShown');
-
-            if (hasSeenPreloader) {
-                // User has seen it, hide immediately
-                if (preloader) {
-                    preloader.style.display = 'none';
-                }
-            } else {
-                // First time visitor, show preloader
-                sessionStorage.setItem('preloaderShown', 'true');
-
-                // Mobile positioning fix
-                if (preloader && window.innerWidth <= 768) {
-                    // Force proper positioning on mobile
-                    preloader.style.height = '100vh';
-                    preloader.style.height = '100dvh'; // Dynamic viewport height
-                    preloader.style.position = 'fixed';
-                    preloader.style.top = '0';
-                    preloader.style.left = '0';
-                    preloader.style.right = '0';
-                    preloader.style.bottom = '0';
-                    preloader.style.width = '100vw';
-                    preloader.style.display = 'flex';
-                    preloader.style.alignItems = 'center';
-                    preloader.style.justifyContent = 'center';
-                    preloader.style.transform = 'none';
-                    preloader.style.margin = '0';
-                    preloader.style.padding = '0';
-
-                    // Force reflow to ensure proper positioning
-                    preloader.offsetHeight;
-
-                    // Add viewport meta tag fix for mobile if not present
-                    if (!document.querySelector('meta[name="viewport"]')) {
-                        const viewport = document.createElement('meta');
-                        viewport.name = 'viewport';
-                        viewport.content = 'width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover';
-                        document.head.appendChild(viewport);
-                    }
-
-                    // Handle orientation change and resize events
-                    const fixMobilePosition = () => {
-                        if (preloader && !preloader.classList.contains('hidden')) {
-                            preloader.style.height = '100vh';
-                            preloader.style.height = '100dvh';
-                            preloader.offsetHeight; // Force reflow
-                        }
-                    };
-
-                    window.addEventListener('orientationchange', fixMobilePosition);
-                    window.addEventListener('resize', fixMobilePosition);
-                }
-
-                // Hide preloader after animation completes
+            // Hide preloader after animation completes (only if it's currently visible)
+            // Session check and positioning is now handled in immediate inline script
+            if (preloader && preloader.style.display !== 'none') {
                 window.addEventListener('load', function() {
                     setTimeout(() => {
-                        if (preloader) {
+                        if (preloader && !preloader.classList.contains('hidden')) {
                             preloader.classList.add('hidden');
 
                             // Remove preloader from DOM after fade-out
