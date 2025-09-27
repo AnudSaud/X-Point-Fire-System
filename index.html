@@ -5498,14 +5498,48 @@
         (function() {
             // IMMEDIATE session check - hide preloader if already seen
             const preloader = document.getElementById('waterPreloader');
-            const hasSeenPreloader = sessionStorage.getItem('preloaderShown');
 
-            if (hasSeenPreloader) {
+            // More robust session storage check
+            const hasSeenPreloader = sessionStorage.getItem('preloaderShown');
+            const hasSeenPreloaderAlt = localStorage.getItem('preloaderShownSession');
+            const currentSessionId = sessionStorage.getItem('sessionId') || Date.now().toString();
+
+            // Set session ID if not exists
+            if (!sessionStorage.getItem('sessionId')) {
+                sessionStorage.setItem('sessionId', currentSessionId);
+            }
+
+            // Check if user is navigating FROM another page
+            const isNavigatingFromOtherPage = document.referrer &&
+                document.referrer.includes(window.location.origin) &&
+                !document.referrer.includes('index.html') &&
+                document.referrer !== window.location.href;
+
+            console.log('🔍 Session check:', {
+                hasSeenPreloader,
+                hasSeenPreloaderAlt,
+                currentSessionId,
+                referrer: document.referrer,
+                location: window.location.href,
+                isNavigatingFromOtherPage
+            });
+
+            // Hide preloader if already seen OR if navigating from another page in same origin
+            if (hasSeenPreloader || hasSeenPreloaderAlt || isNavigatingFromOtherPage) {
                 // User has already seen preloader in this session - hide immediately
                 if (preloader) {
                     preloader.style.display = 'none';
-                    console.log('🚫 Preloader hidden - already seen in this session');
+                    preloader.style.visibility = 'hidden';
+                    preloader.style.opacity = '0';
+                    console.log('🚫 Preloader hidden - already seen or navigating from other page');
                 }
+
+                // Ensure session is marked even if navigating from other page
+                if (isNavigatingFromOtherPage && !hasSeenPreloader) {
+                    sessionStorage.setItem('preloaderShown', 'true');
+                    localStorage.setItem('preloaderShownSession', currentSessionId);
+                }
+
                 return; // Exit early, no need to apply positioning fixes
             }
 
@@ -5550,8 +5584,30 @@
             }
 
             // Mark preloader as shown for this session (first time visitor)
+            // Use both sessionStorage and localStorage for redundancy
             sessionStorage.setItem('preloaderShown', 'true');
-            console.log('✅ Preloader session marked - first time visitor');
+            localStorage.setItem('preloaderShownSession', currentSessionId);
+
+            console.log('✅ Preloader session marked - first time visitor', {
+                sessionStorage: 'preloaderShown=true',
+                localStorage: `preloaderShownSession=${currentSessionId}`
+            });
+
+            // Clean up localStorage when the page is unloaded (tab closed)
+            window.addEventListener('beforeunload', function() {
+                // Only clean up if this was the last tab/window
+                setTimeout(() => {
+                    try {
+                        // Check if sessionStorage still exists (tab still open)
+                        if (!sessionStorage.getItem('sessionId')) {
+                            localStorage.removeItem('preloaderShownSession');
+                        }
+                    } catch (e) {
+                        // Session ended, clean up localStorage
+                        localStorage.removeItem('preloaderShownSession');
+                    }
+                }, 100);
+            });
         })();
     </script>
 
