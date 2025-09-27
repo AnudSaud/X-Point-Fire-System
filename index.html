@@ -93,6 +93,26 @@
             }
         }
 
+        /* Mobile preloader positioning fix */
+        @media (max-width: 768px) {
+            .water-preloader {
+                height: 100vh !important;
+                height: 100dvh !important; /* Dynamic viewport height for modern browsers */
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                right: 0 !important;
+                bottom: 0 !important;
+                width: 100vw !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                transform: none !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+        }
+
 
         * {
             margin: 0;
@@ -6176,6 +6196,48 @@
             } else {
                 // First time visitor, show preloader
                 sessionStorage.setItem('preloaderShown', 'true');
+
+                // Mobile positioning fix
+                if (preloader && window.innerWidth <= 768) {
+                    // Force proper positioning on mobile
+                    preloader.style.height = '100vh';
+                    preloader.style.height = '100dvh'; // Dynamic viewport height
+                    preloader.style.position = 'fixed';
+                    preloader.style.top = '0';
+                    preloader.style.left = '0';
+                    preloader.style.right = '0';
+                    preloader.style.bottom = '0';
+                    preloader.style.width = '100vw';
+                    preloader.style.display = 'flex';
+                    preloader.style.alignItems = 'center';
+                    preloader.style.justifyContent = 'center';
+                    preloader.style.transform = 'none';
+                    preloader.style.margin = '0';
+                    preloader.style.padding = '0';
+
+                    // Force reflow to ensure proper positioning
+                    preloader.offsetHeight;
+
+                    // Add viewport meta tag fix for mobile if not present
+                    if (!document.querySelector('meta[name="viewport"]')) {
+                        const viewport = document.createElement('meta');
+                        viewport.name = 'viewport';
+                        viewport.content = 'width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover';
+                        document.head.appendChild(viewport);
+                    }
+
+                    // Handle orientation change and resize events
+                    const fixMobilePosition = () => {
+                        if (preloader && !preloader.classList.contains('hidden')) {
+                            preloader.style.height = '100vh';
+                            preloader.style.height = '100dvh';
+                            preloader.offsetHeight; // Force reflow
+                        }
+                    };
+
+                    window.addEventListener('orientationchange', fixMobilePosition);
+                    window.addEventListener('resize', fixMobilePosition);
+                }
 
                 // Hide preloader after animation completes
                 window.addEventListener('load', function() {
