@@ -2142,19 +2142,18 @@
 
         .logo-track {
             display: flex;
-            animation: logoSlide 30s linear infinite;
+            animation: logoSlide 25s linear infinite;
             gap: 1.6rem;
             align-items: center;
-            margin-left: -320px;
         }
 
         .logo-item {
             flex-shrink: 0;
-            width: 144px;
-            height: 96px;
+            width: 170px;
+            height: 120px;
             background: white;
             border-radius: 12px;
-            padding: 1.2rem;
+            padding: 1.4rem;
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
             display: flex;
             align-items: center;
@@ -2186,21 +2185,30 @@
                 transform: translateX(0);
             }
             100% {
-                transform: translateX(-50%);
+                transform: translateX(calc(-28 * (170px + 1.6rem)));
             }
         }
 
 
         @media (max-width: 768px) {
             .logo-item {
-                width: 120px;
-                height: 80px;
-                padding: 0.8rem;
+                width: 140px;
+                height: 100px;
+                padding: 1rem;
             }
 
             .logo-track {
                 gap: 0.8rem;
-                margin-left: -240px;
+                animation: logoSlideTablet 25s linear infinite;
+            }
+
+            @keyframes logoSlideTablet {
+                0% {
+                    transform: translateX(0);
+                }
+                100% {
+                    transform: translateX(calc(-28 * (140px + 0.8rem)));
+                }
             }
         }
 
@@ -2238,9 +2246,9 @@
             }
 
             .logo-item {
-                width: 100px !important;
-                height: 70px !important;
-                padding: 0.6rem !important;
+                width: 120px !important;
+                height: 85px !important;
+                padding: 0.8rem !important;
                 border-radius: 8px;
                 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
                 border: 1px solid rgba(220, 53, 69, 0.08);
@@ -2253,17 +2261,15 @@
 
             .logo-track {
                 gap: 0.6rem !important;
-                margin-left: -200px !important;
-                animation: logoSlide 25s linear infinite;
+                animation: logoSlideMobile 21s linear infinite;
             }
 
-            /* Slower animation for better mobile viewing */
-            @keyframes logoSlide {
+            @keyframes logoSlideMobile {
                 0% {
                     transform: translateX(0);
                 }
                 100% {
-                    transform: translateX(-50%);
+                    transform: translateX(calc(-28 * (120px + 0.6rem)));
                 }
             }
         }
@@ -2285,16 +2291,24 @@
             }
 
             .logo-item {
-                width: 90px !important;
-                height: 60px !important;
-                padding: 0.5rem !important;
+                width: 110px !important;
+                height: 75px !important;
+                padding: 0.7rem !important;
                 border-radius: 6px;
             }
 
             .logo-track {
                 gap: 0.5rem !important;
-                margin-left: -180px !important;
-                animation: logoSlide 20s linear infinite;
+                animation: logoSlideSmall 18s linear infinite;
+            }
+
+            @keyframes logoSlideSmall {
+                0% {
+                    transform: translateX(0);
+                }
+                100% {
+                    transform: translateX(calc(-28 * (110px + 0.5rem)));
+                }
             }
 
             /* Even slower animation for very small screens */
@@ -5815,28 +5829,28 @@
                 <div class="hero-slideshow">
                     <div class="slideshow-container">
                         <div class="slide active" data-slide="1">
-                            <img src="https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Fire Alarm Systems">
+                            <img src="assets/images/hero/fire-alarm-hero-image.jpg" alt="Fire Alarm Systems">
                             <div class="slide-overlay">
                                 <h3>Advanced Fire Alarm Systems</h3>
                                 <p>Comprehensive early warning protection with intelligent detection technology</p>
                             </div>
                         </div>
                         <div class="slide" data-slide="2">
-                            <img src="https://images.unsplash.com/photo-1609264107664-b2a8c2e31b4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Fire Suppression Systems">
+                            <img src="assets/images/hero/fire-suppression-systems.jpg" alt="Fire Suppression Systems">
                             <div class="slide-overlay">
                                 <h3>Fire Suppression Systems</h3>
                                 <p>Automatic sprinkler and clean agent systems for critical environments</p>
                             </div>
                         </div>
                         <div class="slide" data-slide="3">
-                            <img src="https://images.unsplash.com/photo-1606987682024-9e75b0825b1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Emergency Services">
+                            <img src="assets/images/hero/emergency.jpg" alt="Emergency Services">
                             <div class="slide-overlay">
                                 <h3>24/7 Emergency Services</h3>
                                 <p>Round-the-clock support and rapid response for fire safety emergencies</p>
                             </div>
                         </div>
                         <div class="slide" data-slide="4">
-                            <img src="https://images.unsplash.com/photo-1477346611705-65d1883cee1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Commercial Fire Protection">
+                            <img src="assets/images/hero/commercial-fire-protection .jpg" alt="Commercial Fire Protection">
                             <div class="slide-overlay">
                                 <h3>Commercial Fire Protection</h3>
                                 <p>Specialized solutions for offices, malls, restaurants, and industrial facilities</p>
@@ -6058,7 +6072,7 @@
                     </div>
                 </a>
                 <div class="view-all-services-container" style="width: 300px; height: 280px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                    <a href="pages/services.html" class="btn" style="background: white; color: #dc3545; border: 2px solid #dc3545; padding: 15px 30px; border-radius: 40px; font-weight: 600; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);">View All 10 Services</a>
+                    <a href="pages/services.html" class="btn" style="background: white; color: #dc3545; border: 2px solid #dc3545; padding: 15px 30px; border-radius: 40px; font-weight: 600; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);">View All Services</a>
                 </div>
             </div>
         </div>
@@ -6190,58 +6204,179 @@
         <div class="container">
             <div class="section-header animate-on-scroll">
                 <h2>Trusted by Leading Companies</h2>
-                <p>We are proud to serve a diverse range of clients across various industries in the UAE</p>
+                <p>Our complete client portfolio showcasing 28+ prestigious organizations across banking, healthcare, real estate, facility management, and corporate sectors in the UAE</p>
             </div>
             <div class="logo-slider animate-on-scroll">
                 <div class="logo-track">
+                    <!-- All 28 Client Logos -->
                     <div class="logo-item">
-                        <img src="https://images.unsplash.com/photo-1560472355-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Company Logo 1">
+                        <img src="assets/images/clients/adib-logo.png" alt="ADIB Bank">
                     </div>
                     <div class="logo-item">
-                        <img src="https://images.unsplash.com/photo-1549924231-f129b911e442?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Company Logo 2">
+                        <img src="assets/images/clients/american-hospital.png" alt="American Hospital Dubai">
                     </div>
                     <div class="logo-item">
-                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Company Logo 3">
+                        <img src="assets/images/clients/ARENCO-REAL-EST.png" alt="ARENCO Real Estate">
                     </div>
                     <div class="logo-item">
-                        <img src="https://images.unsplash.com/photo-1554200876-56c2f25224fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Company Logo 4">
+                        <img src="assets/images/clients/azizi.png" alt="Azizi Developments">
                     </div>
                     <div class="logo-item">
-                        <img src="https://images.unsplash.com/photo-1545558014-8692077e9b5c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Company Logo 5">
+                        <img src="assets/images/clients/farnek.png" alt="Farnek Services">
                     </div>
                     <div class="logo-item">
-                        <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Company Logo 6">
+                        <img src="assets/images/clients/power-group.png" alt="Power Group">
                     </div>
                     <div class="logo-item">
-                        <img src="https://images.unsplash.com/photo-1579547945413-497e1b99dac0?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Company Logo 7">
+                        <img src="assets/images/clients/sbh.png" alt="SBH Holdings">
                     </div>
                     <div class="logo-item">
-                        <img src="https://images.unsplash.com/photo-1606857521015-7f9fcf423740?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Company Logo 8">
+                        <img src="assets/images/clients/Al-Bonian-Facility-Managemnt.png" alt="Al Bonian Facility Management">
+                    </div>
+                    <div class="logo-item">
+                        <img src="assets/images/clients/Duserve-FM.png" alt="Duserve FM">
+                    </div>
+                    <div class="logo-item">
+                        <img src="assets/images/clients/Inaya-Facility-Management.png" alt="Inaya Facility Management">
+                    </div>
+                    <div class="logo-item">
+                        <img src="assets/images/clients/Reliance-Facility.png" alt="Reliance Facility Management">
+                    </div>
+                    <div class="logo-item">
+                        <img src="assets/images/clients/serve-u.png" alt="Serve U">
+                    </div>
+                    <div class="logo-item">
+                        <img src="assets/images/clients/transgaurd.png" alt="Transguard Group">
+                    </div>
+                    <div class="logo-item">
+                        <img src="assets/images/clients/Ebonite-Decor-LLC-1.png" alt="Ebonite Decor LLC">
+                    </div>
+                    <div class="logo-item">
+                        <img src="assets/images/clients/Etjar-Investment-LLC.png" alt="Etjar Investment LLC">
+                    </div>
+                    <div class="logo-item">
+                        <img src="assets/images/clients/nasser-lootah.png" alt="Nasser Lootah Real Estate">
+                    </div>
+                    <div class="logo-item">
+                        <img src="assets/images/clients/client-01-1.png" alt="Wasl Properties">
+                    </div>
+                    <div class="logo-item">
+                        <img src="assets/images/clients/client-02-1.png" alt="Oasis Investment">
+                    </div>
+                    <div class="logo-item">
+                        <img src="assets/images/clients/client-03-1.png" alt="Imdad">
+                    </div>
+                    <div class="logo-item">
+                        <img src="assets/images/clients/client-04-1.png" alt="Engineers Office">
+                    </div>
+                    <div class="logo-item">
+                        <img src="assets/images/clients/client-05-2.png" alt="Stratum">
+                    </div>
+                    <div class="logo-item">
+                        <img src="assets/images/clients/client-06-2.png" alt="Emrill">
+                    </div>
+                    <div class="logo-item">
+                        <img src="assets/images/clients/client-07-2.png" alt="DSC Facilities Services">
+                    </div>
+                    <div class="logo-item">
+                        <img src="assets/images/clients/client-08-2.png" alt="Lootah">
+                    </div>
+                    <div class="logo-item">
+                        <img src="assets/images/clients/client-09-2.png" alt="Canpack">
+                    </div>
+                    <div class="logo-item">
+                        <img src="assets/images/clients/client-10-2.png" alt="Jumeirah">
+                    </div>
+                    <div class="logo-item">
+                        <img src="assets/images/clients/client-11-2.png" alt="KingField">
+                    </div>
+                    <div class="logo-item">
+                        <img src="assets/images/clients/client-12-2.png" alt="Deyaar">
                     </div>
                     <!-- Duplicate for seamless loop -->
                     <div class="logo-item">
-                        <img src="https://images.unsplash.com/photo-1560472355-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Company Logo 1">
+                        <img src="assets/images/clients/adib-logo.png" alt="ADIB Bank">
                     </div>
                     <div class="logo-item">
-                        <img src="https://images.unsplash.com/photo-1549924231-f129b911e442?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Company Logo 2">
+                        <img src="assets/images/clients/american-hospital.png" alt="American Hospital Dubai">
                     </div>
                     <div class="logo-item">
-                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Company Logo 3">
+                        <img src="assets/images/clients/ARENCO-REAL-EST.png" alt="ARENCO Real Estate">
                     </div>
                     <div class="logo-item">
-                        <img src="https://images.unsplash.com/photo-1554200876-56c2f25224fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Company Logo 4">
+                        <img src="assets/images/clients/azizi.png" alt="Azizi Developments">
                     </div>
                     <div class="logo-item">
-                        <img src="https://images.unsplash.com/photo-1545558014-8692077e9b5c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Company Logo 5">
+                        <img src="assets/images/clients/farnek.png" alt="Farnek Services">
                     </div>
                     <div class="logo-item">
-                        <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Company Logo 6">
+                        <img src="assets/images/clients/power-group.png" alt="Power Group">
                     </div>
                     <div class="logo-item">
-                        <img src="https://images.unsplash.com/photo-1579547945413-497e1b99dac0?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Company Logo 7">
+                        <img src="assets/images/clients/sbh.png" alt="SBH Holdings">
                     </div>
                     <div class="logo-item">
-                        <img src="https://images.unsplash.com/photo-1606857521015-7f9fcf423740?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Company Logo 8">
+                        <img src="assets/images/clients/Al-Bonian-Facility-Managemnt.png" alt="Al Bonian Facility Management">
+                    </div>
+                    <div class="logo-item">
+                        <img src="assets/images/clients/Duserve-FM.png" alt="Duserve FM">
+                    </div>
+                    <div class="logo-item">
+                        <img src="assets/images/clients/Inaya-Facility-Management.png" alt="Inaya Facility Management">
+                    </div>
+                    <div class="logo-item">
+                        <img src="assets/images/clients/Reliance-Facility.png" alt="Reliance Facility Management">
+                    </div>
+                    <div class="logo-item">
+                        <img src="assets/images/clients/serve-u.png" alt="Serve U">
+                    </div>
+                    <div class="logo-item">
+                        <img src="assets/images/clients/transgaurd.png" alt="Transguard Group">
+                    </div>
+                    <div class="logo-item">
+                        <img src="assets/images/clients/Ebonite-Decor-LLC-1.png" alt="Ebonite Decor LLC">
+                    </div>
+                    <div class="logo-item">
+                        <img src="assets/images/clients/Etjar-Investment-LLC.png" alt="Etjar Investment LLC">
+                    </div>
+                    <div class="logo-item">
+                        <img src="assets/images/clients/nasser-lootah.png" alt="Nasser Lootah Real Estate">
+                    </div>
+                    <div class="logo-item">
+                        <img src="assets/images/clients/client-01-1.png" alt="Wasl Properties">
+                    </div>
+                    <div class="logo-item">
+                        <img src="assets/images/clients/client-02-1.png" alt="Oasis Investment">
+                    </div>
+                    <div class="logo-item">
+                        <img src="assets/images/clients/client-03-1.png" alt="Imdad">
+                    </div>
+                    <div class="logo-item">
+                        <img src="assets/images/clients/client-04-1.png" alt="Engineers Office">
+                    </div>
+                    <div class="logo-item">
+                        <img src="assets/images/clients/client-05-2.png" alt="Stratum">
+                    </div>
+                    <div class="logo-item">
+                        <img src="assets/images/clients/client-06-2.png" alt="Emrill">
+                    </div>
+                    <div class="logo-item">
+                        <img src="assets/images/clients/client-07-2.png" alt="DSC Facilities Services">
+                    </div>
+                    <div class="logo-item">
+                        <img src="assets/images/clients/client-08-2.png" alt="Lootah">
+                    </div>
+                    <div class="logo-item">
+                        <img src="assets/images/clients/client-09-2.png" alt="Canpack">
+                    </div>
+                    <div class="logo-item">
+                        <img src="assets/images/clients/client-10-2.png" alt="Jumeirah">
+                    </div>
+                    <div class="logo-item">
+                        <img src="assets/images/clients/client-11-2.png" alt="KingField">
+                    </div>
+                    <div class="logo-item">
+                        <img src="assets/images/clients/client-12-2.png" alt="Deyaar">
                     </div>
                 </div>
             </div>
@@ -6927,6 +7062,444 @@
             link.href = resource;
             document.head.appendChild(link);
         });
+
+        // ============================================
+        // CONTACT FORM FUNCTIONALITY
+        // ============================================
+
+        // Configuration - UPDATE THIS URL after deploying Google Apps Script
+        const CONTACT_FORM_CONFIG = {
+            // Replace with your Google Apps Script Web App URL
+            SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbxKCbOfTtXZM9rSYRPB7J8txBBmO6pBB8IbfxdwP3MPIozU0mQ84gMieh43r6NdGjsg/exec',
+            // Form validation settings
+            VALIDATION: {
+                minNameLength: 2,
+                minMessageLength: 10,
+                phonePattern: /^[\+]?[0-9\s\-\(\)]{7,}$/
+            }
+        };
+
+        /**
+         * Initialize contact form functionality
+         */
+        function initializeContactForm() {
+            const contactForm = document.querySelector('#contact-form .contact-form-grid');
+
+            if (!contactForm) {
+                console.log('Contact form not found on this page');
+                return;
+            }
+
+            console.log('🔥 Initializing X Point Fire System Contact Form...');
+
+            // Add form submission handler
+            contactForm.addEventListener('submit', handleContactFormSubmission);
+
+            // Add real-time validation
+            addFormValidation(contactForm);
+
+            // Add visual enhancements
+            addFormEnhancements(contactForm);
+
+            console.log('✅ Contact form initialized successfully!');
+        }
+
+        /**
+         * Handle contact form submission
+         */
+        async function handleContactFormSubmission(e) {
+            e.preventDefault();
+
+            const form = e.target;
+            const submitBtn = form.querySelector('.btn-primary');
+            const originalBtnText = submitBtn.innerHTML;
+
+            try {
+                // Show loading state
+                setFormLoadingState(submitBtn, true);
+
+                // Collect form data
+                const formData = collectFormData(form);
+
+                // Validate form data
+                const validation = validateFormData(formData);
+                if (!validation.valid) {
+                    throw new Error(validation.message);
+                }
+
+                // Add additional data
+                formData.timestamp = new Date().toISOString();
+                formData.userAgent = navigator.userAgent;
+                formData.pageUrl = window.location.href;
+
+                // Get user's IP address (best effort)
+                try {
+                    const ipResponse = await fetch('https://api.ipify.org?format=json');
+                    const ipData = await ipResponse.json();
+                    formData.ipAddress = ipData.ip;
+                } catch (ipError) {
+                    console.log('Could not get IP address:', ipError);
+                    formData.ipAddress = 'Unknown';
+                }
+
+                // Submit to Google Apps Script
+                const response = await submitToGoogleScript(formData);
+
+                if (response.success) {
+                    // Show success message
+                    showFormFeedback('success', 'Thank you for your message! Our fire safety experts will contact you within 24 hours.');
+
+                    // Reset form
+                    form.reset();
+
+                    // Remove validation classes
+                    form.querySelectorAll('.form-group').forEach(group => {
+                        group.classList.remove('error', 'success');
+                    });
+
+                    console.log('✅ Form submitted successfully!');
+                } else {
+                    throw new Error(response.message || 'Form submission failed');
+                }
+
+            } catch (error) {
+                console.error('❌ Form submission error:', error);
+                showFormFeedback('error', error.message);
+            } finally {
+                // Reset button state
+                setFormLoadingState(submitBtn, false, originalBtnText);
+            }
+        }
+
+        /**
+         * Submit form data to Google Apps Script
+         */
+        async function submitToGoogleScript(formData) {
+            console.log('📡 Submitting form data:', formData);
+
+            try {
+                const queryParams = new URLSearchParams();
+                queryParams.append('data', JSON.stringify(formData));
+
+                const getUrl = `${CONTACT_FORM_CONFIG.SCRIPT_URL}?${queryParams.toString()}`;
+                console.log('📡 Making GET request to:', getUrl);
+
+                const response = await fetch(getUrl, {
+                    method: 'GET',
+                    mode: 'cors'
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const result = await response.json();
+                console.log('📡 Response received:', result);
+                return result;
+
+            } catch (error) {
+                console.error('❌ Error submitting to Google Apps Script:', error);
+                // Fallback method (iframe)
+                console.log('🔄 Falling back to iframe method...');
+
+                // Create a hidden form
+                const form = document.createElement('form');
+                form.method = 'POST';
+                form.action = CONTACT_FORM_CONFIG.SCRIPT_URL;
+                form.target = 'hidden-iframe';
+                form.style.display = 'none';
+
+                // Add form data as hidden input
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = 'data';
+                input.value = JSON.stringify(formData);
+                form.appendChild(input);
+
+                // Create hidden iframe
+                let iframe = document.getElementById('hidden-iframe');
+                if (!iframe) {
+                    iframe = document.createElement('iframe');
+                    iframe.id = 'hidden-iframe';
+                    iframe.name = 'hidden-iframe';
+                    iframe.style.display = 'none';
+                    document.body.appendChild(iframe);
+                }
+
+                // Submit form
+                document.body.appendChild(form);
+                form.submit();
+                document.body.removeChild(form);
+
+                // Return success (we can't check iframe result reliably)
+                return { success: true, message: 'Form submitted successfully!' };
+            }
+        }
+
+        /**
+         * Collect form data
+         */
+        function collectFormData(form) {
+            const formData = new FormData(form);
+            const data = {};
+
+            for (let [key, value] of formData.entries()) {
+                data[key] = value.trim();
+            }
+
+            return data;
+        }
+
+        /**
+         * Validate form data
+         */
+        function validateFormData(data) {
+            const { VALIDATION } = CONTACT_FORM_CONFIG;
+
+            // Required fields
+            if (!data.name || data.name.length < VALIDATION.minNameLength) {
+                return { valid: false, message: `Name must be at least ${VALIDATION.minNameLength} characters long` };
+            }
+
+            if (!data.email || !isValidEmail(data.email)) {
+                return { valid: false, message: 'Please enter a valid email address' };
+            }
+
+            if (!data.phone || !VALIDATION.phonePattern.test(data.phone)) {
+                return { valid: false, message: 'Please enter a valid phone number' };
+            }
+
+            if (data.message && data.message.length > 0 && data.message.length < VALIDATION.minMessageLength) {
+                return { valid: false, message: `Message must be at least ${VALIDATION.minMessageLength} characters long` };
+            }
+
+            return { valid: true };
+        }
+
+        /**
+         * Email validation helper
+         */
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        /**
+         * Set form loading state
+         */
+        function setFormLoadingState(button, isLoading, originalText = '') {
+            if (isLoading) {
+                button.disabled = true;
+                button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending Message...';
+                button.style.opacity = '0.7';
+            } else {
+                button.disabled = false;
+                button.innerHTML = originalText || '<i class="fas fa-paper-plane"></i> Send Message';
+                button.style.opacity = '1';
+            }
+        }
+
+        /**
+         * Show form feedback message
+         */
+        function showFormFeedback(type, message) {
+            // Remove existing feedback
+            const existingFeedback = document.querySelector('.form-feedback');
+            if (existingFeedback) {
+                existingFeedback.remove();
+            }
+
+            // Create feedback element
+            const feedback = document.createElement('div');
+            feedback.className = `form-feedback ${type}`;
+            feedback.style.cssText = `
+                padding: 15px 20px;
+                margin: 20px 0;
+                border-radius: 8px;
+                font-weight: 600;
+                text-align: center;
+                animation: slideDown 0.3s ease-out;
+                ${type === 'success'
+                    ? 'background: #d4edda; color: #155724; border: 1px solid #c3e6cb;'
+                    : 'background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb;'
+                }
+            `;
+
+            const icon = type === 'success' ? '✅' : '❌';
+            feedback.innerHTML = `${icon} ${message}`;
+
+            // Insert feedback
+            const form = document.querySelector('#contact-form .contact-form-container');
+            form.appendChild(feedback);
+
+            // Auto-remove after 8 seconds
+            setTimeout(() => {
+                if (feedback.parentNode) {
+                    feedback.style.animation = 'slideUp 0.3s ease-out';
+                    setTimeout(() => feedback.remove(), 300);
+                }
+            }, 8000);
+        }
+
+        /**
+         * Add real-time form validation
+         */
+        function addFormValidation(form) {
+            const formGroups = form.querySelectorAll('.form-group');
+
+            formGroups.forEach(group => {
+                const input = group.querySelector('input, textarea, select');
+                if (!input) return;
+
+                // Add validation on blur
+                input.addEventListener('blur', () => validateFormField(group, input));
+
+                // Add validation on input for email and phone
+                if (input.type === 'email' || input.type === 'tel') {
+                    input.addEventListener('input', () => validateFormField(group, input));
+                }
+            });
+        }
+
+        /**
+         * Validate individual form field
+         */
+        function validateFormField(group, input) {
+            const value = input.value.trim();
+            let isValid = true;
+            let errorMessage = '';
+
+            // Reset previous validation
+            group.classList.remove('error', 'success');
+            const existingError = group.querySelector('.field-error');
+            if (existingError) existingError.remove();
+
+            // Skip validation for optional fields that are empty
+            if (!input.required && !value) {
+                return;
+            }
+
+            // Field-specific validation
+            switch (input.type) {
+                case 'text':
+                    if (input.name === 'name' && value.length < 2) {
+                        isValid = false;
+                        errorMessage = 'Name must be at least 2 characters';
+                    }
+                    break;
+                case 'email':
+                    if (value && !isValidEmail(value)) {
+                        isValid = false;
+                        errorMessage = 'Please enter a valid email address';
+                    }
+                    break;
+                case 'tel':
+                    if (value && !CONTACT_FORM_CONFIG.VALIDATION.phonePattern.test(value)) {
+                        isValid = false;
+                        errorMessage = 'Please enter a valid phone number';
+                    }
+                    break;
+            }
+
+            // Required field check
+            if (input.required && !value) {
+                isValid = false;
+                errorMessage = 'This field is required';
+            }
+
+            // Apply validation styling
+            if (value) { // Only show validation for non-empty fields
+                if (isValid) {
+                    group.classList.add('success');
+                } else {
+                    group.classList.add('error');
+                    showFieldError(group, errorMessage);
+                }
+            }
+        }
+
+        /**
+         * Show field error message
+         */
+        function showFieldError(group, message) {
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'field-error';
+            errorDiv.style.cssText = `
+                color: #dc3545;
+                font-size: 0.8rem;
+                margin-top: 0.3rem;
+                font-weight: 500;
+            `;
+            errorDiv.textContent = message;
+            group.appendChild(errorDiv);
+        }
+
+        /**
+         * Add visual form enhancements
+         */
+        function addFormEnhancements(form) {
+            // Add CSS for validation states
+            if (!document.querySelector('#contact-form-styles')) {
+                const styles = document.createElement('style');
+                styles.id = 'contact-form-styles';
+                styles.textContent = `
+                    @keyframes slideDown {
+                        from { transform: translateY(-20px); opacity: 0; }
+                        to { transform: translateY(0); opacity: 1; }
+                    }
+                    @keyframes slideUp {
+                        from { transform: translateY(0); opacity: 1; }
+                        to { transform: translateY(-20px); opacity: 0; }
+                    }
+                    .form-group.success input,
+                    .form-group.success textarea,
+                    .form-group.success select {
+                        border-color: #28a745 !important;
+                        box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25) !important;
+                    }
+                    .form-group.error input,
+                    .form-group.error textarea,
+                    .form-group.error select {
+                        border-color: #dc3545 !important;
+                        box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25) !important;
+                    }
+                    .form-group.success label::after {
+                        content: " ✓";
+                        color: #28a745;
+                        font-weight: bold;
+                    }
+                    .form-group.error label::after {
+                        content: " ✗";
+                        color: #dc3545;
+                        font-weight: bold;
+                    }
+                `;
+                document.head.appendChild(styles);
+            }
+
+            // Add focus effects
+            const inputs = form.querySelectorAll('input, textarea, select');
+            inputs.forEach(input => {
+                input.addEventListener('focus', () => {
+                    input.parentElement.style.transform = 'scale(1.02)';
+                    input.style.borderColor = '#dc3545';
+                });
+
+                input.addEventListener('blur', () => {
+                    input.parentElement.style.transform = 'scale(1)';
+                    if (!input.parentElement.classList.contains('error')) {
+                        input.style.borderColor = '';
+                    }
+                });
+            });
+        }
+
+        // Initialize contact form when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializeContactForm);
+        } else {
+            initializeContactForm();
+        }
 
 
     </script>

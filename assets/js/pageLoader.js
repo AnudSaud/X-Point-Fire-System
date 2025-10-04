@@ -131,15 +131,19 @@ class PageLoader {
 
     // Preload common pages
     preloadCommonPages() {
+        // Determine if we're in a subdirectory
+        const isInSubdirectory = window.location.pathname.includes('/pages/');
+        const basePath = isInSubdirectory ? '../pages/' : 'pages/';
+
         const commonPages = [
-            'pages/about.html',
-            'pages/services.html',
-            'pages/contact.html',
-            'pages/projects.html'
+            'about.html',
+            'services.html',
+            'contact.html',
+            'projects.html'
         ];
 
         commonPages.forEach(page => {
-            this.preloadPage(page);
+            this.preloadPage(basePath + page);
         });
     }
 }
